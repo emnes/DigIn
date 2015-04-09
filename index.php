@@ -116,125 +116,66 @@
     
 <div class="container-fluid">
   <div class="row-fluid">
-<!--     <div class="span2">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-          Categories
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Type of Food</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">International</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Time of Day</a></li>
-        </ul>
-      </div>
-    </div> -->
     <div class="span10">
       <div class="container" align="center">
+       
+        <!-- About us-->
         <div class="page-header">
-          <h1>Recent Comments</h1>
+          <h1>About</h1>
         </div>
-
         <div class="container">
           <div class="row clearfix">
-            <div class="col-md-6 column">
+            <div class="col-md-4 column">
+              <img alt="140x140" src="http://lorempixel.com/140/140/" />
               <h2>
-                Username
+                FIeld
               </h2>
               <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
               </p>
             </div>
-            <div class="col-md-6 column">
+            <div class="col-md-4 column">
+              <img alt="140x140" src="http://lorempixel.com/140/140/" />
               <h2>
-                Username
+                Heading
               </h2>
               <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
               </p>
             </div>
-          </div>
-          <div class="row clearfix">
-            <div class="col-md-6 column">
+            <div class="col-md-4 column">
+              <img alt="140x140" src="http://lorempixel.com/140/140/" />
               <h2>
-                Username
+                Heading
               </h2>
               <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-            <div class="col-md-6 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-          </div>
-          <div class="row clearfix">
-            <div class="col-md-6 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-            <div class="col-md-6 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-          </div>
-          <div class="row clearfix">
-            <div class="col-md-6 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-            <div class="col-md-6 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
               </p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10">
+      <div class="container" align="center">
+       
+        <!--Most recent comments -->
+        <div class="page-header">
+          <h1>Most Recent Ratings</h1>
+        </div>
+        
+        <!--8 ratings listed-->
+
+
 
       </div>
+    </div>
   </div>
 </div>
 
