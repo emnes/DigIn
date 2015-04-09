@@ -124,7 +124,7 @@
     </div>
     <div class="col-md-2">
         <div class="page-header">
-          <h1>Restaurants</h1>
+          <h1>Raters</h1>
         </div>
         <div class="container">
           <div class="row clearfix">

@@ -1,5 +1,4 @@
 <?php
-include 'php/data_access_layer.php';
 
 $data_access_layer = new DataAccessLayer();
 

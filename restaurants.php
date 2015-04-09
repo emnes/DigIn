@@ -15,6 +15,35 @@
   </script>
   <title> Restaurants | Dig In </title>
 </head>
+<!-- Deals with Logging in and Storing sessions -->
+<?php
+  include 'php/data_access_layer.php';
+  $data_access_layer = new DataAccessLayer();
+
+  session_start();
+  // Check if login button clicked and login value is in POST
+  if(array_key_exists('login',$_POST))
+  {
+    // Retrieve email and password
+    $logInEmail=$_POST['logInEmail'];
+    $logInPass=$_POST['logInPass'];
+
+    // Query for user
+    $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
+    $result = $data_access_layer->executeQuery($logInQuery);
+    $result_count = count($result);
+    // If user exists
+    if($row_count>0)
+    {
+      // Store log in email under log in email
+      $_SESSION['logInEmail']=$logInEmail;
+      // Go to this location
+      header("location: restaurants.php");
+      exit;
+    }
+    pg_free_result($result);
+  }
+  ?>
 <body>
   <!-- Modal View for Log In -->
     <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
@@ -25,17 +54,17 @@
           <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Log In</h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal">
+          <form class="form-horizontal" method="POST" action="">
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <label for="logInEmail" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <input type="email" class="form-control" id="logInEmail" placeholder="Email">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+              <label for="logInPass" class="col-sm-2 control-label">Password</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input type="password" class="form-control" id="logInPass" placeholder="Password">
               </div>
             </div>
             <div class="form-group">

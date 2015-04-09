@@ -86,7 +86,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html"><img alt="Brand" src="assets/img/logo2.png" style="width:147px; height:50px;"/></a>
+        <a class="navbar-brand" href="index.php"><img alt="Brand" src="assets/img/logo2.png" style="width:147px; height:50px;"/></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -97,7 +97,7 @@
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group search-bar">
               <input type="text" class="form-control" placeholder="Search Restaurant">
-            <a href="search.html" class="btn btn-default btn-md" role="button">
+            <a href="#" class="btn btn-default btn-md" role="button">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </a>
             </div>
