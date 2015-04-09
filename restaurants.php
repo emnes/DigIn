@@ -203,9 +203,9 @@
         <p class="text-muted" class="footer footer-bottom"> About</p>
       </div>
     </footer>
-  </div>--!>
+  </div>
 
-    <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript -->
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./header:body:footer_files/jquery.min.js"></script>
