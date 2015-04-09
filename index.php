@@ -128,7 +128,7 @@
             <div class="col-md-4 column">
               <img alt="140x140" src="http://lorempixel.com/140/140/" />
               <h2>
-                FIeld
+                Field
               </h2>
               <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
@@ -171,8 +171,26 @@
         </div>
         
         <!--8 ratings listed-->
-
-
+        <?php
+        $mostRecentRatings = "SELECT * FROM fieldmazcolleen.mostRecentRatings()";
+        $rows = $data_access_layer->executeQuery($mostRecentRatings);
+        foreach ($rows as $row) 
+        {
+          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
+          echo '
+          <div class="container">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+          <h2>' . row[4] . '</h2>
+          <p> by ' . row[0] . '</p>
+          <p><font color="blue"> (' . row[1] . ')</p>
+          <p>' . row[2] . '</p>
+          <p>Helpfulness' . row[3] . '</p>
+          </div>
+          </div>
+          </div>';
+        }
+        ?>
 
       </div>
     </div>
@@ -185,7 +203,7 @@
         <p class="text-muted" class="footer footer-bottom"> About</p>
       </div>
     </footer>
-  </div>
+  </div>-->
 
     <!-- Bootstrap core JavaScript -->
     <!--================================================== -->
