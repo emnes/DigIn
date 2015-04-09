@@ -19,7 +19,7 @@ class DataAccessLayer{
 		// Connects database.
 		$dbconn = pg_connect($this->connString) or die('Connection failed');
 		// Prepare to avoid SQL injection
-		$stmt=pg_prepare($dbconn,"ps",$query);
+		$stmt = pg_prepare($dbconn,"ps",$query);
 		// Executes query.
 		$result = pg_query($query);
 		// No return from PostgreSQL.
