@@ -3,9 +3,10 @@
 $typeQuery = "SELECT DISTINCT R.type FROM fieldmazcolleen.restaurant R";
 
 $rows = $data_access_layer->executeQuery($typeQuery);
+echo "<li><button class=\"btn btn-default\" type=\"radio\" name=\"type[]\" id=\"All\" value=\"All\" onClick=\"changeRestaurantType(this.id)\">All</button></li>";
 foreach ($rows as $row) 
 {
-    echo "\n\t\t\t\t<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
+    echo "<li><button class=\"btn btn-default\" type=\"submit\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" onClick=\"changeRestaurantType(this.id)\">". $row[0] . "</button></li>";
 }
 ?>
 

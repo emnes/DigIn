@@ -43,8 +43,6 @@ footer{
 .sidebar input{
     margin:0;
 }
-.sidebar label{
-    padding: 0 10px;
-    margin: 0;
-    font-weight: normal;
+.sidebar button{
+    width: 120px;
 }

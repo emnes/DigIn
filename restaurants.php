@@ -142,7 +142,6 @@
   </nav>
 
 <!-- Begin page content -->
-    
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="col-md-2">
@@ -151,46 +150,11 @@
         <?php include 'sidebar.php'; ?>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-8">
         <div class="page-header">
-          <h1>Restaurants</h1>
+          <h1 id="typeOfRestaurant">All Restaurants</h1>
         </div>
-        <div class="container">
-          <div class="row clearfix">
-            <div class="col-md-3 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-            <div class="col-md-3 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-            <div class="col-md-3 column">
-              <h2>
-                Username
-              </h2>
-              <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <a class="btn" href="#">View details »</a>
-              </p>
-            </div>
-          </div>
+        <div class="container" id="restaurants">
         </div>
       </div>
     </div>
@@ -206,7 +170,6 @@
   </div>
 
     <!-- Bootstrap core JavaScript -->
-    <!== ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./header:body:footer_files/jquery.min.js"></script>
     <script src="./header:body:footer_files/bootstrap.min.js"></script>
