@@ -183,8 +183,8 @@ if(array_key_exists('login',$_POST))
         
         <!--Ratings of a Restaurant-->
         <?php
-        $mostRecentRatings = "SELECT * FROM fieldmazcolleen.rating";
-        $rows = $data_access_layer->executeQuery($mostRecentRatings);
+        $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.rating";
+        $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
         foreach ($rows as $row) 
         {
           // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
@@ -195,12 +195,12 @@ if(array_key_exists('login',$_POST))
           <h2>" . $row[0] . "</h2>
           <p> at " . $row[1] . "</p>
           <p> " . $row[7] . "</p>
-          <p> price: " . $row[1] . "</p>
-          <p> food: " . $row[2] . "</p>
-          <p> " . $row[1] . "</p>
-          <p> " . $row[1] . "</p>
-          <p> " . $row[1] . "</p>
-          <p> helpfulness:" . $row[8] . "</p>
+          <p> price: " . $row[2] . "</p>
+          <p> food: " . $row[3] . "</p>
+          <p> mood: " . $row[4] . "</p>
+          <p> staff: " . $row[6] . "</p>
+          <p> overall: " . $row[6] . "</p>
+          <p> helpfulness: " . $row[8] . "</p>
           </div>
           </div>
           </div>"; //Restaurant name, username, type, comments, helpfulness
@@ -216,8 +216,8 @@ if(array_key_exists('login',$_POST))
         
         <!--Menu Ratings-->
         <?php
-        $mostRecentRatings = "SELECT * FROM fieldmazcolleen.ratingitem";
-        $rows = $data_access_layer->executeQuery($mostRecentRatings);
+        $menuRatingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingitem";
+        $rows = $data_access_layer->executeQuery($menuRatingsOfARestaurant);
         foreach ($rows as $row) 
         {
           // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
@@ -225,18 +225,17 @@ if(array_key_exists('login',$_POST))
           <div class=\"container\">
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
-          <h2>" . $row[4] . "</h2>
-          <p> at " . $row[5] . "</p>
-          <p> by " . $row[0] . "</p>
-          <p><font color=\"blue\"> (" . $row[1] . ")</font></p>
-          <p>" . $row[2] . "</p>
-          <p>Helpfulness" . $row[3] . "</p>
+          <h2>" . $row[0] . "</h2>
+          <p> menu item: " . $row[5] . "</p>
+          <p> at " . $row[1] . "</p>
+          <p> " . $row[3] . " </p>
+          <p> rating: " . $row[2] . "</p>
+          <p> price: " . $row[4] . "</p>
           </div>
           </div>
-          </div>"; //Restaurant name, username, type, comments, helpfulness
+          </div>"; //, username, type, comments, helpfulness
         }
         ?>
-
     </div>
   </div>
 </div>
