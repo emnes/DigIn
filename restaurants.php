@@ -155,6 +155,7 @@
           <h1 id="typeOfRestaurant">All Restaurants</h1>
         </div>
         <div class="container" id="restaurants">
+
         </div>
       </div>
     </div>
