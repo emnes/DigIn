@@ -3,7 +3,11 @@
 $typeQuery = "SELECT DISTINCT R.type FROM fieldmazcolleen.restaurant R";
 
 $rows = $data_access_layer->executeQuery($typeQuery);
-echo "<li><a href=\"restaurants.php?type=All\" class=\"btn btn-default\" type=\"radio\" name=\"type[]\" id=\"All\" value=\"All\" onClick=\"changeRestaurantType(this.id)\">All</a></li>";
+if("All" == $_GET['type'])
+	echo "<li role=\"presentation\" class=\"active\"><a href=\"restaurants.php?type=All\">All</a></li>";
+else
+	echo "<li role=\"presentation\"><a href=\"restaurants.php?type=All\">All</a></li>";
+
 foreach ($rows as $row) 
 {
 	if($row[0] == $_GET['type'])
@@ -15,6 +19,7 @@ foreach ($rows as $row)
     	echo "<li role=\"presentation\"><a href=\"restaurants.php?type=".$row[0]."\">".$row[0]."</a></li>";
 	}
 }
+
 ?>
 
 <!-- <li><input type="checkbox" name="type[]" id="Indian" value="Indian"/><label for="Indian">Indian</label></li

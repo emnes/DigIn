@@ -117,7 +117,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="restaurants.php">Restaurants</a></li>
+          <li class="active"><a href="restaurants.php?type=All">Restaurants</a></li>
           <li><a href="raters.php">Raters</a></li>
         </ul>
           <form class="navbar-form navbar-right" role="search">
