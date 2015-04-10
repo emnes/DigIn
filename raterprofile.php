@@ -10,7 +10,7 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
-  <title> Restaurant Profile | Dig In </title>
+  <title> User Profile | Dig In </title>
 </head>
 <!-- Deals with Logging in and Storing sessions -->
 <?php
@@ -145,9 +145,8 @@ if(array_key_exists('login',$_POST))
     <div class="row-fluid">
       <div class="span10">
         <?php
-        $restaurantInfo = "SELECT * FROM fieldmazcolleen.location";
-   //restaurant name
-        $rows = $data_access_layer->executeQuery($restaurantInfo);
+        $userInfo = "SELECT * FROM fieldmazcolleen.rater";
+        $rows = $data_access_layer->executeQuery($userInfo);
         $rows = $rows[0];
         echo "
         <div class=\"container\" align=\"left\">
@@ -157,13 +156,10 @@ if(array_key_exists('login',$_POST))
         <div class=\"container\">
         <div class=\"row clearfix\">
         <div class=\"col-md-12 column\">
-        <p> (" . $rows[5] . ") </p>
-        <h3> likeness: " . $rows[8] . "</h3>
-        <p> located at: " . $rows[5] . "</p>
-        <p> phone number: " . $rows[4] . "</p>
-        <p> open from: " . $rows[6] . " to: " . $rows[7] . "</p>
-        <p> manager :" . $rows[3] . "</p>
-        <p> first opened in:" . $rows[2] . "</p>
+        <p> name: " . $rows[2] . "</p>
+        <p> member since: " . $rows[3] . "</p>
+        <p> type: " . $rows[5] . "</p>
+        <p> reputation: " . $rows[6] . "</p>
         </div>
         </div>
         </div>
@@ -180,30 +176,32 @@ if(array_key_exists('login',$_POST))
       <div class="page-header">
           <h1>Restaurant Ratings</h1>
         </div>
+
         
-        <!--Ratings of a Restaurant-->
+        <!--Restaurant Ratings of a User-->
         <?php
-        $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.rating";
-        $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
+        $RatingsOfAUser = "SELECT * FROM fieldmazcolleen.rating";
+        $rows = $data_access_layer->executeQuery($RatingsOfAUser);
         foreach ($rows as $row) 
         {
-          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
           echo "
           <div class=\"container\">
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
-          <h2>" . $row[0] . "</h2>
+          <p> number of ratings: " . $row[0] . "</p>
+          <h2>" . $row[10] . "</h2>
           <p> at " . $row[1] . "</p>
-          <p> " . $row[7] . "</p>
-          <p> price: " . $row[2] . "</p>
-          <p> food: " . $row[3] . "</p>
-          <p> mood: " . $row[4] . "</p>
+          <p>  " . $row[8] . "</p>
+          <p> globalrate: " . $row[7] . "</p>
+          <p> price: " . $row[3] . "</p>
+          <p> food: " . $row[4] . "</p>
+          <p> mood: " . $row[5] . "</p>
           <p> staff: " . $row[6] . "</p>
-          <p> overall: " . $row[6] . "</p>
-          <p> helpfulness: " . $row[8] . "</p>
+          <p> " . $row[1] . "</p>
+          <p> helpfulness:" . $row[9] . "</p>
           </div>
           </div>
-          </div>"; //Restaurant name, username, type, comments, helpfulness
+          </div>";
         }
         ?>
       
@@ -214,13 +212,12 @@ if(array_key_exists('login',$_POST))
           <h1>Menu Ratings</h1>
         </div>
         
-        <!--Menu Ratings-->
+        <!--Menu Ratings of a User-->
         <?php
-        $menuRatingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingitem";
-        $rows = $data_access_layer->executeQuery($menuRatingsOfARestaurant);
+        $menuRatingsOfAUser = "SELECT * FROM fieldmazcolleen.ratingitem";
+        $rows = $data_access_layer->executeQuery($menuRatingsOfAUser);
         foreach ($rows as $row) 
         {
-          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
           echo "
           <div class=\"container\">
           <div class=\"row clearfix\">
@@ -233,11 +230,24 @@ if(array_key_exists('login',$_POST))
           <p> price: " . $row[4] . "</p>
           </div>
           </div>
-          </div>"; //, username, type, comments, helpfulness
+          </div>";
         }
         ?>
+
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
