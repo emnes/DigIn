@@ -170,7 +170,9 @@
             else
               $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant R WHERE R.type = '".$type."'";
             $rows = $data_access_layer->executeQuery($restaurantQuery); 
-            foreach($rows as $row){ echo "<p>".$row[0]."</p>"; } 
+            foreach($rows as $row){ 
+              echo "<p>".$row[0]."</p>"; 
+            } 
           ?>
         </div>
       </div>
