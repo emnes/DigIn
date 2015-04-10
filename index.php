@@ -212,34 +212,7 @@ if(array_key_exists('login',$_POST))
 
         $dbconn = pg_connect($connString) or die('Connection failed');
 
-        $sql = "SELECT rater.userid,
-        R.type,
-        globalrate,
-        comments,
-        helpfulness,
-        R.NAME
-        FROM   (SELECT T.userid,
-          T.globalrate,
-          T.comments,
-          T.helpfulness,
-          T.locationid
-          FROM   (SELECT userid,
-            globalrate,
-            comments,
-            helpfulness,
-            locationid,
-            Row_number()
-            OVER (
-              ORDER BY timestamp)
-FROM   rating) AS T
-WHERE  T.row_number < 4) S
-INNER JOIN rater
-ON ( rater.userid = S.userid )
-INNER JOIN location L
-ON ( L.locationid = S.locationid )
-INNER JOIN restaurant R
-ON ( R.restaurantid = L.restaurantid )";
-
+        $sql = "SELECT * FROM fieldmazcolleen.mostrecentratings()";
         $res = pg_prepare($dbconn, "my_query", $sql);
         $rows = pg_execute($dbconn, "my_query", array());
 
