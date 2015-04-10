@@ -151,7 +151,7 @@
     </div>
     <div class="col-md-8">
         <div class="page-header">
-          <h1 id="typeOfRestaurant">All Restaurants</h1>
+          <?php $title = $_GET['type']." Restaurants"; echo "<h1>".$title."<h1>"; ?>
         </div>
         <div class="container" id="restaurants">
 
