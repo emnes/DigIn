@@ -10,40 +10,37 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
-  <script>
-
-  </script>
-  <title> Home | Dig In </title>
+  <title> Restaurant Profile | Dig In </title>
 </head>
+<!-- Deals with Logging in and Storing sessions -->
 <?php
-include 'php/data_access_layer.php';
-$data_access_layer = new DataAccessLayer();
+  include 'php/data_access_layer.php';
+  $data_access_layer = new DataAccessLayer();
 
-session_start();
+  session_start();
   // Check if login button clicked and login value is in POST
-if(array_key_exists('login',$_POST))
-{
+  if(array_key_exists('login',$_POST))
+  {
     // Retrieve email and password
-  $logInEmail=$_POST['logInEmail'];
-  $logInPass=$_POST['logInPass'];
+    $logInEmail=$_POST['logInEmail'];
+    $logInPass=$_POST['logInPass'];
 
     // Query for user
-  $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
-  $result = $data_access_layer->executeQuery($logInQuery);
-  $result_count = count($result);
+    $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
+    $result = $data_access_layer->executeQuery($logInQuery);
+    $result_count = count($result);
     // If user exists
-  if($row_count>0)
-  {
+    if($row_count>0)
+    {
       // Store log in email under log in email
-    $_SESSION['logInEmail']=$logInEmail;
+      $_SESSION['logInEmail']=$logInEmail;
       // Go to this location
-    header("location: restaurants.php");
-    exit;
+      header("location: restaurants.php");
+      exit;
+    }
+    pg_free_result($result);
   }
-  pg_free_result($result);
-}
-?>
-
+  ?>
 <body>
   <!-- Modal View for Log In -->
     <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
@@ -54,17 +51,17 @@ if(array_key_exists('login',$_POST))
           <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Log In</h4>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal">
+          <form class="form-horizontal" method="POST" action="">
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <label for="logInEmail" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <input type="email" class="form-control" id="logInEmail" placeholder="Email">
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+              <label for="logInPass" class="col-sm-2 control-label">Password</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input type="password" class="form-control" id="logInPass" placeholder="Password">
               </div>
             </div>
             <div class="form-group">
@@ -120,7 +117,7 @@ if(array_key_exists('login',$_POST))
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="restaurants.php">Restaurants</a></li>
+          <li class="active"><a href="restaurants.php">Restaurants</a></li>
           <li><a href="raters.php">Raters</a></li>
         </ul>
           <form class="navbar-form navbar-right" role="search">
@@ -141,106 +138,52 @@ if(array_key_exists('login',$_POST))
     </div><!-- /.container-fluid -->
   </nav>
 
-<!-- Begin page content -->
-    
+  <!-- Begin page content -->
+
+<!-- Restaurant General Info-->
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span10">
-      <div class="container" align="center">
-       
-        <!-- About us-->
-        <div class="page-header">
-          <h1>About</h1>
-        </div>
-        <div class="container">
-          <div class="row clearfix">
-            <div class="col-md-4 column">
-              <img alt="140x140" src="http://lorempixel.com/140/140/" />
-              <h2>
-                Field
-              </h2>
-              <p>
-                Database Guro
-              </p>
-            </div>
-            <div class="col-md-4 column">
-              <img alt="140x140" src="http://lorempixel.com/140/140/" />
-              <h2>
-                Maz
-              </h2>
-              <p>
-                Webmaster
-              </p>
-            </div>
-            <div class="col-md-4 column">
-              <img alt="140x140" src="http://lorempixel.com/140/140/" />
-              <h2>
-                Colleen
-              </h2>
-              <p>
-               King
-              </p>
-            </div>
-          </div>
-        </div>
+      <?php
+      $restaurantInfo = "SELECT * FROM fieldmazcolleen.restaurantInfo()";
+       //restaurant name
+      $rows = $data_access_layer->executeQuery($restaurantInfo);
+      $rows = $rows[0];
+      echo "
+      <div class=\"container\" align=\"center\">
+      <div class=\"page-header\" align=\"center\">
+      <h1>" . $rows[0] . "</h1>
       </div>
+      <div class=\"container\">
+      <div class=\"row clearfix\">
+      <div class=\"col-md-12 column\">
+      <p> (" . $rows[5] . ") </p>
+      <h3> likeness: " . $rows[8] . "</h3>
+      <p> located at: " . $rows[5] . "</p>
+      <p> phone number: " . $rows[4] . "</p>
+      <p> open from: " . $rows[6] . " to: " . $rows[7] . "</p>
+      <p> manager :" . $rows[3] . "</p>
+      <p> first opened in:" . $rows[2] . "</p>
+      </div>
+      </div>
+      </div>
+      </div>";
+      ?>
     </div>
   </div>
 </div>
 
-    
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10">
-      <div class="container" align="center">
-       
-        <!--Most recent comments -->
-        <div class="page-header">
-          <h1>Most Recent Ratings</h1>
-        </div>
-        
-        <!--8 ratings listed-->
-        <?php
-        $mostRecentRatings = "SELECT * FROM fieldmazcolleen.mostRecentRatings()";
-        $rows = $data_access_layer->executeQuery($mostRecentRatings);
-        foreach ($rows as $row) 
-        {
-          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
-          echo "
-          <div class=\"container\">
-          <div class=\"row clearfix\">
-          <div class=\"col-md-12 column\">
-          <h2>" . $row[4] . "</h2>
-          <p> at " . $row[5] . "</p>
-          <p> by " . $row[0] . "</p>
-          <p><font color=\"blue\"> (" . $row[1] . ")</font></p>
-          <p>" . $row[2] . "</p>
-          <p>Helpfulness" . $row[3] . "</p>
-          </div>
-          </div>
-          </div>"; //Restaurant name, username, type, comments, helpfulness
-        }
-        ?>
 
-      </div>
-    </div>
-  </div>
-</div>
 
-    <!-- Footer: About, Careers etc.-->    
-    <!--<footer class="footer">
-      <div class="container" align="bottom">
-        <p class="text-muted" class="footer footer-bottom"> About</p>
-      </div>
-    </footer>
-  </div>-->
 
-    <!-- Bootstrap core JavaScript -->
-    <!--================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./header:body:footer_files/jquery.min.js"></script>
-    <script src="./header:body:footer_files/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./header:body:footer_files/ie10-viewport-bug-workaround.js"></script>
-  </body>
+
+
+
+
+
+
+
+
+
+</body>
 </html>
