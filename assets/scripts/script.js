@@ -2,8 +2,9 @@
 function changeRestaurantType(clicked_id)
 {
 	document.getElementById('typeOfRestaurant').innerHTML = clicked_id + " Restaurants";
-	var firstPHP = <?php $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant R WHERE R.type = '
-	document.getElementById('restaurants').innerHTML = "<?php $restaurantQuery = \"SELECT * FROM fieldmazcolleen.restaurant R WHERE R.type = '"+ clicked_id + "'\"; $rows = $data_access_layer->executeQuery($restaurantQuery); foreach($rows2 as $row){ echo \"<p>\".$row[0].\"</p>\";} ?>";
+
+	document.getElementById('restaurants').innerHTML = "<p><?php $restaurantQuery = \"SELECT * FROM fieldmazcolleen.restaurant R WHERE R.type = '"
+	+ clicked_id + "'\"; $rows = $data_access_layer->executeQuery($restaurantQuery); foreach($rows2 as $row){ echo \"<p>\".$row[0].\"</p>\";} ?></p>";
 }
 
 /* Restaurants Dynamic END */

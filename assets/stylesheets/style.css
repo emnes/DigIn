@@ -36,8 +36,13 @@ footer{
 }
 
 .sidebar{
+    text-align: center; 
     list-style-type:none;
     padding: 0;
+}
+
+.sidebar h3{
+    text-align: center;
 }
 
 .sidebar input{
@@ -45,4 +50,5 @@ footer{
 }
 .sidebar button{
     width: 120px;
+
 }

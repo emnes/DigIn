@@ -10,9 +10,6 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
-  <script>
-
-  </script>
   <title> Restaurants | Dig In </title>
 </head>
 <!-- Deals with Logging in and Storing sessions -->
@@ -147,7 +144,9 @@
     <div class="col-md-2">
       <div class="sidebar">
         <h2>Type</h2>
-        <?php include 'sidebar.php'; ?>
+        <ul class="nav nav-pills nav-stacked">
+          <?php include 'sidebar.php'; ?>
+        </ul>
       </div>
     </div>
     <div class="col-md-8">
