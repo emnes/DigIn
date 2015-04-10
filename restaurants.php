@@ -166,12 +166,23 @@
         <div class="container" id="restaurants">
           <?php 
             if($type=="All")
-              $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant";
+              $restaurantQuery = "SELECT * FROM fieldmazcolleen.location";
             else
-              $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant R WHERE R.type = '".$type."'";
+              $restaurantQuery = "SELECT * FROM fieldmazcolleen.location L, fieldmazcolleen.restaurant R WHERE R.type = '".$type."' AND L.restaurantid = R.restaurantid";
             $rows = $data_access_layer->executeQuery($restaurantQuery); 
             foreach($rows as $row){ 
-              echo "<p>".$row[0]."</p>"; 
+              if($row[8]==0)
+                $likeness = "Not Yet Rated";
+              else
+                $likeness = $row[8]." Rating";
+              echo "<div class=\"row clearfix\">
+              <h3>".$row[0]." (".$likeness.")</h3>
+              <h5> Adress: ".$row[4]."</h5>
+              <h5> Phone: ".$row[3]."</h5>
+              <h5> Opening Hours: ".$row[5]." to ".$row[6]."</h5>
+              <h5> Open Since: ".$row[1]."</h5>
+              <h5> Manager Name: ".$row[2]."</h5>
+              </div>"; 
             } 
           ?>
         </div>
