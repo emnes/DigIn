@@ -10,12 +10,18 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
-  <title> Rater Profile | Dig In </title>
+  <?php include 'php/data_access_layer.php';
+  $data_access_layer = new DataAccessLayer();?>
+  <title>
+    <?php $userId = $_GET['userid']; 
+    $raterInfo = "SELECT * FROM fieldmazcolleen.raterInfo('".$userId."')";
+    $rows = $data_access_layer->executeQuery($raterInfo);
+    $row = $rows[0];
+    echo $row[0]." | Dig In";
+    ?> </title>
 </head>
 <!-- Deals with Logging in and Storing sessions -->
 <?php
-include 'php/data_access_layer.php';
-$data_access_layer = new DataAccessLayer();
 
 session_start();
 // Check if login button clicked and login value is in POST
@@ -42,17 +48,19 @@ if(array_key_exists('login',$_POST))
 }
 ?>
 <body>
-<?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
+  <?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
   <!-- Begin page content -->
 
-  <!-- Restaurant General Info-->
+  <!-- Rater General Info-->
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span10">
         <?php
-        $userInfo = "SELECT * FROM fieldmazcolleen.rater";
-        $rows = $data_access_layer->executeQuery($userInfo);
-        $rows = $rows[0];
+
+        if($row[3]==0)
+                $reputation = "Not Yet Reputable";
+              else
+                $reputation = $row[3];
         echo "
         <div class=\"container\" align=\"left\">
         <div class=\"page-header\" align=\"left\">
@@ -61,10 +69,10 @@ if(array_key_exists('login',$_POST))
         <div class=\"container\">
         <div class=\"row clearfix\">
         <div class=\"col-md-12 column\">
-        <p> name: " . $rows[2] . "</p>
-        <p> member since: " . $rows[3] . "</p>
-        <p> type: " . $rows[5] . "</p>
-        <p> reputation: " . $rows[6] . "</p>
+        <p> Name: " . $rows[0] . "</p>
+        <p> Member since: " . $rows[1] . "</p>
+        <p> Type: " . $rows[2] . "</p>
+        <p> Reputation: " . $reputation . "</p>
         </div>
         </div>
         </div>
@@ -74,52 +82,48 @@ if(array_key_exists('login',$_POST))
     </div>
   </div>
 
-<div class="container">
-  <div class="row clearfix">
-    <div class="col-md-6 column">
-
-      <div class="page-header">
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-6 column">
+        <div class="page-header">
           <h1>Restaurant Ratings</h1>
         </div>
-
         
         <!--Restaurant Ratings of a User-->
-        <?php
-        $RatingsOfAUser = "SELECT * FROM fieldmazcolleen.rating";
-        $rows = $data_access_layer->executeQuery($RatingsOfAUser);
+        <?php $userId = $_GET['userid']; 
+        $ratingsOfAUser = "SELECT * FROM fieldmazcolleen.menuRatingsOfAUser('".$userId."')";
+        $rows = $data_access_layer->executeQuery($ratingsOfAUser);
         foreach ($rows as $row) 
         {
           echo "
           <div class=\"container\">
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
-          <p> number of ratings: " . $row[0] . "</p>
+          <p> Number of ratings: " . $row[0] . "</p>
           <h2>" . $row[10] . "</h2>
           <p> at " . $row[1] . "</p>
           <p>  " . $row[8] . "</p>
-          <p> globalrate: " . $row[7] . "</p>
-          <p> price: " . $row[3] . "</p>
-          <p> food: " . $row[4] . "</p>
-          <p> mood: " . $row[5] . "</p>
-          <p> staff: " . $row[6] . "</p>
+          <p> Globalrate: " . $row[7] . "</p>
+          <p> Price: " . $row[3] . "</p>
+          <p> Food: " . $row[4] . "</p>
+          <p> Mood: " . $row[5] . "</p>
+          <p> Staff: " . $row[6] . "</p>
           <p> " . $row[1] . "</p>
-          <p> helpfulness:" . $row[9] . "</p>
+          <p> Helpfulness:" . $row[9] . "</p>
           </div>
           </div>
           </div>";
         }
         ?>
-      
-    </div>
-    <div class="col-md-6 column">
 
-      <div class="page-header">
+      </div>
+      <div class="col-md-6 column">
+        <div class="page-header">
           <h1>Menu Ratings</h1>
         </div>
-        
         <!--Menu Ratings of a User-->
-        <?php
-        $menuRatingsOfAUser = "SELECT * FROM fieldmazcolleen.ratingitem";
+        <?php $userId = $_GET['userid']; 
+        $menuRatingsOfAUser = "SELECT * FROM menuRatingsOfAUser('".$userId."')";
         $rows = $data_access_layer->executeQuery($menuRatingsOfAUser);
         foreach ($rows as $row) 
         {
@@ -128,28 +132,19 @@ if(array_key_exists('login',$_POST))
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
           <h2>" . $row[0] . "</h2>
-          <p> menu item: " . $row[5] . "</p>
+          <p> Menu item: " . $row[5] . "</p>
           <p> at " . $row[1] . "</p>
           <p> " . $row[3] . " </p>
-          <p> rating: " . $row[2] . "</p>
-          <p> price: " . $row[4] . "</p>
+          <p> Rating: " . $row[2] . "</p>
+          <p> Price: " . $row[4] . "</p>
           </div>
           </div>
           </div>";
         }
         ?>
-
+      </div>
     </div>
   </div>
-</div>
-
-
-
-
-
-
-
-
 
 
 

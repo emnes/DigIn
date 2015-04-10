@@ -56,7 +56,12 @@ if(array_key_exists('login',$_POST))
     <div class="row-fluid">
       <div class="span10">
         <?php
-   //restaurant info
+        // If likeness doesn't show or is 0
+        if($row[8]==0)
+          $likeness = "Not yet rated";
+        else
+          $likeness = $row[8]." rating";
+
         echo "
         <div class=\"container\" align=\"left\">
         <div class=\"page-header\" align=\"left\">
@@ -66,12 +71,12 @@ if(array_key_exists('login',$_POST))
         <div class=\"row clearfix\">
         <div class=\"col-md-12 column\">
         <p> (" . $row[5] . ") </p>
-        <h3> likeness: " . $row[8] . "</h3>
+        <p> overall:" . $likeness . "</p>
         <p> located at: " . $row[5] . "</p>
         <p> phone number: " . $row[4] . "</p>
         <p> open from: " . $row[6] . " to: " . $row[7] . "</p>
-        <p> manager :" . $row[3] . "</p>
-        <p> first opened in:" . $row[2] . "</p>
+        <p> manager : " . $row[2] . "</p>
+        <p> first opened in: " . $row[3] . "</p>
         </div>
         </div>
         </div>
@@ -89,25 +94,24 @@ if(array_key_exists('login',$_POST))
         </div>
         
         <!--Ratings of a Restaurant-->
-        <?php
-        $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.rating";
+        <?php $locationId = $_GET['locationid']; 
+        $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingsOfARestaurant('".$locationId."')";
         $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
         foreach ($rows as $row) 
         {
-          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
           echo "
           <div class=\"container\">
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
           <h2>" . $row[0] . "</h2>
           <p> at " . $row[1] . "</p>
-          <p> " . $row[7] . "</p>
-          <p> price: " . $row[2] . "</p>
-          <p> food: " . $row[3] . "</p>
-          <p> mood: " . $row[4] . "</p>
-          <p> staff: " . $row[6] . "</p>
-          <p> overall: " . $row[6] . "</p>
-          <p> helpfulness: " . $row[8] . "</p>
+          <p> " . $row[9] . "</p>
+          <p> price: " . $row[4] . "</p>
+          <p> food: " . $row[5] . "</p>
+          <p> mood: " . $row[6] . "</p>
+          <p> staff: " . $row[7] . "</p>
+          <p> overall: " . $row[8] . "</p>
+          <p> helpfulness: " . $row[10] . "</p>
           </div>
           </div>
           </div>"; //Restaurant name, username, type, comments, helpfulness
@@ -120,12 +124,11 @@ if(array_key_exists('login',$_POST))
           <h1>Menu Ratings</h1>
         </div>
         <!--Menu Ratings-->
-        <?php
-        $menuRatingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingitem";
-        $rows = $data_access_layer->executeQuery($menuRatingsOfARestaurant);
+        <?php $locationId = $_GET['locationid']; 
+        $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuRatingsOfARestaurant('".$locationId."')";
+        $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
         foreach ($rows as $row) 
         {
-          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
           echo "
           <div class=\"container\">
           <div class=\"row clearfix\">
@@ -138,7 +141,7 @@ if(array_key_exists('login',$_POST))
           <p> price: " . $row[4] . "</p>
           </div>
           </div>
-          </div>"; //, username, type, comments, helpfulness
+          </div>";
         }
         ?>
     </div>

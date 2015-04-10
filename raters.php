@@ -81,7 +81,7 @@
               else
                 $reputation = $row[6];
               echo "<div class=\"row clearfix\">
-              <h3> Name: ".$row[2]."</h3>
+              <a href=\"raterprofile.php?userid=".$row[2]."\">".$row[2]."</a>
               <h5> Member since: ".$row[3]."</h5>
               <h5> Reputation: ".$reputation."</h5>
               <h5> Ratings: coming soon </h5>

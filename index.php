@@ -101,37 +101,23 @@ if(array_key_exists('login',$_POST))
         
         <!--8 ratings listed-->
         <?php
-        //$mostRecentRatings = "SELECT * FROM \"mostRecentRatings()\"";
-        //$rows = $data_access_layer->executeQuery($mostRecentRatings);
-
-        $connString = "host=".$GLOBALS['dbhost']. " ".
-              "port=".$GLOBALS['dbport']. " ".
-              "dbname=".$GLOBALS['dbname']. " ".
-              "user=".$GLOBALS['dbuser']." ".
-              "password=".$GLOBALS['dbpass'];
-
-        $dbconn = pg_connect($connString) or die('Connection failed');
-
-        $sql = "SELECT * FROM fieldmazcolleen.mostrecentratings()";
-        $res = pg_prepare($dbconn, "my_query", $sql);
-        $rows = pg_execute($dbconn, "my_query", array());
-
-        foreach ($rows as $row) 
+        $mostRecentRatings = "SELECT * FROM mostRecentRatings()";
+        $rows = $data_access_layer->executeQuery($mostRecentRatings);
+        foreach($rows as $row) 
         {
-          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
           echo "
           <div class=\"container\">
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
-          <h2>" . $row[4] . "</h2>
-          <p> at " . $row[5] . "</p>
+          <h2>" . $row[5] . "</h2>
+          <p> " . $row[1] . "</p>
+          <p> overall: " . $row[2] . "</p>
           <p> by " . $row[0] . "</p>
-          <p><font color=\"blue\"> (" . $row[1] . ")</font></p>
-          <p>" . $row[2] . "</p>
-          <p>Helpfulness" . $row[3] . "</p>
+          <p> ". $row[3] . " </p>
+          <p>helpfulness: " . $row[4] . "</p>
           </div>
           </div>
-          </div>"; //Restaurant name, username, type, comments, helpfulness
+          </div>";
         }
         ?>
 
