@@ -14,36 +14,36 @@
 </head>
 <!-- Deals with Logging in and Storing sessions -->
 <?php
-  include 'php/data_access_layer.php';
-  $data_access_layer = new DataAccessLayer();
+include 'php/data_access_layer.php';
+$data_access_layer = new DataAccessLayer();
 
-  session_start();
-  // Check if login button clicked and login value is in POST
-  if(array_key_exists('login',$_POST))
+session_start();
+// Check if login button clicked and login value is in POST
+if(array_key_exists('login',$_POST))
+{
+// Retrieve email and password
+  $logInEmail=$_POST['logInEmail'];
+  $logInPass=$_POST['logInPass'];
+
+// Query for user
+  $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
+  $result = $data_access_layer->executeQuery($logInQuery);
+  $result_count = count($result);
+// If user exists
+  if($row_count>0)
   {
-    // Retrieve email and password
-    $logInEmail=$_POST['logInEmail'];
-    $logInPass=$_POST['logInPass'];
-
-    // Query for user
-    $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
-    $result = $data_access_layer->executeQuery($logInQuery);
-    $result_count = count($result);
-    // If user exists
-    if($row_count>0)
-    {
-      // Store log in email under log in email
-      $_SESSION['logInEmail']=$logInEmail;
-      // Go to this location
-      header("location: restaurants.php");
-      exit;
-    }
-    pg_free_result($result);
+  // Store log in email under log in email
+    $_SESSION['logInEmail']=$logInEmail;
+  // Go to this location
+    header("location: restaurants.php");
+    exit;
   }
-  ?>
+  pg_free_result($result);
+}
+?>
 <body>
   <!-- Modal View for Log In -->
-    <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
+  <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -81,10 +81,10 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
-    <!-- Modal View for Sign Up -->
-    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
+  <!-- Modal View for Sign Up -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -99,7 +99,7 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
   <!-- Navigation  -->
   <nav class="navbar navbar-default">
@@ -120,59 +120,123 @@
           <li class="active"><a href="restaurants.php">Restaurants</a></li>
           <li><a href="raters.php">Raters</a></li>
         </ul>
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group search-bar">
-              <input type="text" class="form-control" placeholder="Search Restaurant">
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group search-bar">
+            <input type="text" class="form-control" placeholder="Search Restaurant">
             <a href="#" class="btn btn-default btn-md" role="button">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </a>
-            </div>
-            <button type="button" class="btn btn-primary btn-md" role="button" onClick="logIn()">
+          </div>
+          <button type="button" class="btn btn-primary btn-md" role="button" onClick="logIn()">
             Log In
-            </button>
-            <button type="button" class="btn btn-success btn-md" role="button" onClick="signUp()">
+          </button>
+          <button type="button" class="btn btn-success btn-md" role="button" onClick="signUp()">
             Sign Up
-            </button>
-          </form>
+          </button>
+        </form>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
   <!-- Begin page content -->
 
-<!-- Restaurant General Info-->
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10">
-      <?php
-      $restaurantInfo = "SELECT * FROM fieldmazcolleen.restaurantInfo()";
-       //restaurant name
-      $rows = $data_access_layer->executeQuery($restaurantInfo);
-      $rows = $rows[0];
-      echo "
-      <div class=\"container\" align=\"center\">
-      <div class=\"page-header\" align=\"center\">
-      <h1>" . $rows[0] . "</h1>
+  <!-- Restaurant General Info-->
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span10">
+        <?php
+        $restaurantInfo = "SELECT * FROM fieldmazcolleen.location";
+   //restaurant name
+        $rows = $data_access_layer->executeQuery($restaurantInfo);
+        $rows = $rows[0];
+        echo "
+        <div class=\"container\" align=\"left\">
+        <div class=\"page-header\" align=\"left\">
+        <h1>" . $rows[0] . "</h1>
+        </div>
+        <div class=\"container\">
+        <div class=\"row clearfix\">
+        <div class=\"col-md-12 column\">
+        <p> (" . $rows[5] . ") </p>
+        <h3> likeness: " . $rows[8] . "</h3>
+        <p> located at: " . $rows[5] . "</p>
+        <p> phone number: " . $rows[4] . "</p>
+        <p> open from: " . $rows[6] . " to: " . $rows[7] . "</p>
+        <p> manager :" . $rows[3] . "</p>
+        <p> first opened in:" . $rows[2] . "</p>
+        </div>
+        </div>
+        </div>
+        </div>";
+        ?>
       </div>
-      <div class=\"container\">
-      <div class=\"row clearfix\">
-      <div class=\"col-md-12 column\">
-      <p> (" . $rows[5] . ") </p>
-      <h3> likeness: " . $rows[8] . "</h3>
-      <p> located at: " . $rows[5] . "</p>
-      <p> phone number: " . $rows[4] . "</p>
-      <p> open from: " . $rows[6] . " to: " . $rows[7] . "</p>
-      <p> manager :" . $rows[3] . "</p>
-      <p> first opened in:" . $rows[2] . "</p>
-      </div>
-      </div>
-      </div>
-      </div>";
-      ?>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-6 column">
+
+      <div class="page-header">
+          <h1>Restaurant Ratings</h1>
+        </div>
+        
+        <!--8 ratings listed-->
+        <?php
+        $mostRecentRatings = "SELECT * FROM fieldmazcolleen.rating";
+        $rows = $data_access_layer->executeQuery($mostRecentRatings);
+        foreach ($rows as $row) 
+        {
+          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
+          echo "
+          <div class=\"container\">
+          <div class=\"row clearfix\">
+          <div class=\"col-md-12 column\">
+          <h2>" . $row[4] . "</h2>
+          <p> at " . $row[5] . "</p>
+          <p> by " . $row[0] . "</p>
+          <p><font color=\"blue\"> (" . $row[1] . ")</font></p>
+          <p>" . $row[2] . "</p>
+          <p>Helpfulness" . $row[3] . "</p>
+          </div>
+          </div>
+          </div>"; //Restaurant name, username, type, comments, helpfulness
+        }
+        ?>
+      
+    </div>
+    <div class="col-md-6 column">
+
+      <div class="page-header">
+          <h1>Menu Ratings</h1>
+        </div>
+        
+        <!--8 ratings listed-->
+        <?php
+        $mostRecentRatings = "SELECT * FROM fieldmazcolleen.ratingitem";
+        $rows = $data_access_layer->executeQuery($mostRecentRatings);
+        foreach ($rows as $row) 
+        {
+          // echo "<li><input type=\"checkbox\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" /><label for=\"" . $row[0] . "\">" . $row[0] . "</label></li>";
+          echo "
+          <div class=\"container\">
+          <div class=\"row clearfix\">
+          <div class=\"col-md-12 column\">
+          <h2>" . $row[4] . "</h2>
+          <p> at " . $row[5] . "</p>
+          <p> by " . $row[0] . "</p>
+          <p><font color=\"blue\"> (" . $row[1] . ")</font></p>
+          <p>" . $row[2] . "</p>
+          <p>Helpfulness" . $row[3] . "</p>
+          </div>
+          </div>
+          </div>"; //Restaurant name, username, type, comments, helpfulness
+        }
+        ?>
+
     </div>
   </div>
 </div>
-
 
 
 
