@@ -10,6 +10,7 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
   <title> Restaurant Profile | Dig In </title>
 </head>
 <!-- Deals with Logging in and Storing sessions -->
@@ -41,6 +42,39 @@ if(array_key_exists('login',$_POST))
   pg_free_result($result);
 }
 ?>
+=======
+  <title> Raters | Dig In </title>
+</head>
+<!-- Deals with Logging in and Storing sessions -->
+<?php
+  include 'php/data_access_layer.php';
+  $data_access_layer = new DataAccessLayer();
+
+  session_start();
+  // Check if login button clicked and login value is in POST
+  if(array_key_exists('login',$_POST))
+  {
+    // Retrieve email and password
+    $logInEmail=$_POST['logInEmail'];
+    $logInPass=$_POST['logInPass'];
+
+    // Query for user
+    $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
+    $result = $data_access_layer->executeQuery($logInQuery);
+    $result_count = count($result);
+    // If user exists
+    if($row_count>0)
+    {
+      // Store log in email under log in email
+      $_SESSION['logInEmail']=$logInEmail;
+      // Go to this location
+      header("location: restaurants.php");
+      exit;
+    }
+    pg_free_result($result);
+  }
+  ?>
+>>>>>>> cff29f58b9cc68abcd321a3e5e79b973ef9614da
 <body>
   <!-- Modal View for Log In -->
   <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
@@ -117,8 +151,13 @@ if(array_key_exists('login',$_POST))
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+<<<<<<< HEAD
           <li class="active"><a href="restaurants.php">Restaurants</a></li>
           <li><a href="raters.php">Raters</a></li>
+=======
+          <li><a href="restaurants.php?type=All">Restaurants</a></li>
+          <li class="active"><a href="raters.php?type=All">Raters</a></li>
+>>>>>>> cff29f58b9cc68abcd321a3e5e79b973ef9614da
         </ul>
         <form class="navbar-form navbar-right" role="search">
           <div class="form-group search-bar">
@@ -138,6 +177,7 @@ if(array_key_exists('login',$_POST))
     </div><!-- /.container-fluid -->
   </nav>
 
+<<<<<<< HEAD
   <!-- Begin page content -->
 
   <!-- Restaurant General Info-->
@@ -209,6 +249,53 @@ if(array_key_exists('login',$_POST))
 
       <div class="page-header">
           <h1>Menu Ratings</h1>
+=======
+<!-- Begin page content -->
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-md-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="sidebar">
+            <div class="page-header">
+              <h2>Type</h2>
+            </div>
+            <ul class="nav nav-pills nav-stacked">
+              <?php include 'sidebar-raters.php'; ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+        </div>
+    <div class="col-md-10">
+        <div class="page-header">
+          <?php 
+            $type = $_GET['type']; 
+            $title = $type." Raters"; 
+            echo "<h2>".$title."<h2>"; 
+          ?>
+        </div>
+        <div class="container" id="restaurants">
+          <?php 
+            if($type=="All")
+              $raterQuery = "SELECT * FROM fieldmazcolleen.rater";
+            else
+              $raterQuery = "SELECT * FROM fieldmazcolleen.rater R WHERE R.type = '".$type."'";
+            $rows = $data_access_layer->executeQuery($raterQuery); 
+            foreach($rows as $row){ 
+              if($row[6]==0)
+                $reputation = "Not Yet Reputable";
+              else
+                $reputation = $row[6];
+              echo "<div class=\"row clearfix\">
+              <h3> Name: ".$row[2]."</h3>
+              <h5> Member since: ".$row[3]."</h5>
+              <h5> Reputation: ".$reputation."</h5>
+              <h5> Ratings: coming soon </h5>
+              </div>"; 
+            } 
+          ?>
+>>>>>>> cff29f58b9cc68abcd321a3e5e79b973ef9614da
         </div>
         
         <!--8 ratings listed-->
@@ -251,3 +338,7 @@ if(array_key_exists('login',$_POST))
 
 </body>
 </html>
+=======
+  </body>
+</html>
+>>>>>>> cff29f58b9cc68abcd321a3e5e79b973ef9614da

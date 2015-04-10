@@ -118,7 +118,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active"><a href="restaurants.php?type=All">Restaurants</a></li>
-          <li><a href="raters.php">Raters</a></li>
+          <li><a href="raters.php?type=All">Raters</a></li>
         </ul>
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group search-bar">
@@ -166,11 +166,24 @@
         <div class="container" id="restaurants">
           <?php 
             if($type=="All")
-              $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant";
+              $restaurantQuery = "SELECT * FROM fieldmazcolleen.location";
             else
-              $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant R WHERE R.type = '".$type."'";
+              $restaurantQuery = "SELECT * FROM fieldmazcolleen.location L, fieldmazcolleen.restaurant R WHERE R.type = '".$type."' AND L.restaurantid = R.restaurantid";
             $rows = $data_access_layer->executeQuery($restaurantQuery); 
-            foreach($rows as $row){ echo "<p>".$row[0]."</p>"; } 
+            foreach($rows as $row){ 
+              if($row[8]==0)
+                $likeness = "Not yet rated";
+              else
+                $likeness = $row[8]." rating";
+              echo "<div class=\"row clearfix\">
+              <h3>".$row[0]." (".$likeness.")</h3>
+              <h5> Address: ".$row[4]."</h5>
+              <h5> Phone: ".$row[3]."</h5>
+              <h5> Opening hours: ".$row[5]." to ".$row[6]."</h5>
+              <h5> Open since: ".$row[1]."</h5>
+              <h5> Manager name: ".$row[2]."</h5>
+              </div>"; 
+            } 
           ?>
         </div>
       </div>

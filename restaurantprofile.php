@@ -181,7 +181,7 @@ if(array_key_exists('login',$_POST))
           <h1>Restaurant Ratings</h1>
         </div>
         
-        <!--8 ratings listed-->
+        <!--Ratings of a Restaurant-->
         <?php
         $mostRecentRatings = "SELECT * FROM fieldmazcolleen.rating";
         $rows = $data_access_layer->executeQuery($mostRecentRatings);
@@ -192,12 +192,15 @@ if(array_key_exists('login',$_POST))
           <div class=\"container\">
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
-          <h2>" . $row[4] . "</h2>
-          <p> at " . $row[5] . "</p>
-          <p> by " . $row[0] . "</p>
-          <p><font color=\"blue\"> (" . $row[1] . ")</font></p>
-          <p>" . $row[2] . "</p>
-          <p>Helpfulness" . $row[3] . "</p>
+          <h2>" . $row[0] . "</h2>
+          <p> at " . $row[1] . "</p>
+          <p> " . $row[7] . "</p>
+          <p> price: " . $row[1] . "</p>
+          <p> food: " . $row[2] . "</p>
+          <p> " . $row[1] . "</p>
+          <p> " . $row[1] . "</p>
+          <p> " . $row[1] . "</p>
+          <p> helpfulness:" . $row[8] . "</p>
           </div>
           </div>
           </div>"; //Restaurant name, username, type, comments, helpfulness
@@ -211,7 +214,7 @@ if(array_key_exists('login',$_POST))
           <h1>Menu Ratings</h1>
         </div>
         
-        <!--8 ratings listed-->
+        <!--Menu Ratings-->
         <?php
         $mostRecentRatings = "SELECT * FROM fieldmazcolleen.ratingitem";
         $rows = $data_access_layer->executeQuery($mostRecentRatings);
