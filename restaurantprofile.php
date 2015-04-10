@@ -240,17 +240,5 @@ if(array_key_exists('login',$_POST))
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
