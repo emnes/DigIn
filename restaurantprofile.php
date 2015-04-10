@@ -10,12 +10,18 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
-  <title> Restaurant Profile | Dig In </title>
+  <?php include 'php/data_access_layer.php'; 
+  $data_access_layer = new DataAccessLayer();?>
+  <title>
+    <?php $locationId = $_GET['locationid']; 
+    $restaurantInfo = "SELECT * FROM fieldmazcolleen.restaurantInfo('".$locationId."')";
+    $rows = $data_access_layer->executeQuery($restaurantInfo);
+    $row = $rows[0];
+    echo $row[0]." | Dig In";
+    ?> </title>
 </head>
 <!-- Deals with Logging in and Storing sessions -->
 <?php
-include 'php/data_access_layer.php';
-$data_access_layer = new DataAccessLayer();
 
 session_start();
 // Check if login button clicked and login value is in POST
@@ -42,102 +48,7 @@ if(array_key_exists('login',$_POST))
 }
 ?>
 <body>
-  <!-- Modal View for Log In -->
-  <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Log In</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-horizontal" method="POST" action="">
-            <div class="form-group">
-              <label for="logInEmail" class="col-sm-2 control-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="logInEmail" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="logInPass" class="col-sm-2 control-label">Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="logInPass" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Remember me
-                  </label>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary" >Log in</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal View for Sign Up -->
-  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-        </div>
-        <div class="modal-body">
-          The selected book has been added to your shopping cart.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation  -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display - IGNORE -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.php"><img alt="Brand" src="assets/img/logo2.png" style="width:147px; height:50px;"/></a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="restaurants.php">Restaurants</a></li>
-          <li><a href="raters.php">Raters</a></li>
-        </ul>
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group search-bar">
-            <input type="text" class="form-control" placeholder="Search Restaurant">
-            <a href="#" class="btn btn-default btn-md" role="button">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </a>
-          </div>
-          <button type="button" class="btn btn-primary btn-md" role="button" onClick="logIn()">
-            Log In
-          </button>
-          <button type="button" class="btn btn-success btn-md" role="button" onClick="signUp()">
-            Sign Up
-          </button>
-        </form>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
+<?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
   <!-- Begin page content -->
 
   <!-- Restaurant General Info-->
@@ -145,25 +56,22 @@ if(array_key_exists('login',$_POST))
     <div class="row-fluid">
       <div class="span10">
         <?php
-        $restaurantInfo = "SELECT * FROM fieldmazcolleen.location";
-   //restaurant name
-        $rows = $data_access_layer->executeQuery($restaurantInfo);
-        $rows = $rows[0];
+   //restaurant info
         echo "
         <div class=\"container\" align=\"left\">
         <div class=\"page-header\" align=\"left\">
-        <h1>" . $rows[0] . "</h1>
+        <h1>" . $row[0] . "</h1>
         </div>
         <div class=\"container\">
         <div class=\"row clearfix\">
         <div class=\"col-md-12 column\">
-        <p> (" . $rows[5] . ") </p>
-        <h3> likeness: " . $rows[8] . "</h3>
-        <p> located at: " . $rows[5] . "</p>
-        <p> phone number: " . $rows[4] . "</p>
-        <p> open from: " . $rows[6] . " to: " . $rows[7] . "</p>
-        <p> manager :" . $rows[3] . "</p>
-        <p> first opened in:" . $rows[2] . "</p>
+        <p> (" . $row[5] . ") </p>
+        <h3> likeness: " . $row[8] . "</h3>
+        <p> located at: " . $row[5] . "</p>
+        <p> phone number: " . $row[4] . "</p>
+        <p> open from: " . $row[6] . " to: " . $row[7] . "</p>
+        <p> manager :" . $row[3] . "</p>
+        <p> first opened in:" . $row[2] . "</p>
         </div>
         </div>
         </div>
@@ -176,7 +84,6 @@ if(array_key_exists('login',$_POST))
 <div class="container">
   <div class="row clearfix">
     <div class="col-md-6 column">
-
       <div class="page-header">
           <h1>Restaurant Ratings</h1>
         </div>
@@ -209,11 +116,9 @@ if(array_key_exists('login',$_POST))
       
     </div>
     <div class="col-md-6 column">
-
       <div class="page-header">
           <h1>Menu Ratings</h1>
         </div>
-        
         <!--Menu Ratings-->
         <?php
         $menuRatingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingitem";

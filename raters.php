@@ -42,101 +42,7 @@
   }
   ?>
 <body>
-  <!-- Modal View for Log In -->
-  <div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Log In</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-horizontal" method="POST" action="">
-            <div class="form-group">
-              <label for="logInEmail" class="col-sm-2 control-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="logInEmail" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="logInPass" class="col-sm-2 control-label">Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="logInPass" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Remember me
-                  </label>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary" >Log in</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal View for Sign Up -->
-  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="logInModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-        </div>
-        <div class="modal-body">
-          The selected book has been added to your shopping cart.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation  -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display - IGNORE -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.php"><img alt="Brand" src="assets/img/logo2.png" style="width:147px; height:50px;"/></a>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="restaurants.php?type=All">Restaurants</a></li>
-          <li class="active"><a href="raters.php?type=All">Raters</a></li>
-        </ul>
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group search-bar">
-            <input type="text" class="form-control" placeholder="Search Restaurant">
-            <a href="#" class="btn btn-default btn-md" role="button">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </a>
-          </div>
-          <button type="button" class="btn btn-primary btn-md" role="button" onClick="logIn()">
-            Log In
-          </button>
-          <button type="button" class="btn btn-success btn-md" role="button" onClick="signUp()">
-            Sign Up
-          </button>
-        </form>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+<?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
 <!-- Begin page content -->
 <div class="container-fluid">
   <div class="row-fluid">
@@ -148,7 +54,7 @@
               <h2>Type</h2>
             </div>
             <ul class="nav nav-pills nav-stacked">
-              <?php include 'sidebar-raters.php'; ?>
+              <?php include 'php/sidebar-raters.php'; ?>
             </ul>
           </div>
         </div>
