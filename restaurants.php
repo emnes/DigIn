@@ -142,19 +142,36 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="col-md-2">
-      <div class="sidebar">
-        <h2>Type</h2>
-        <ul class="nav nav-pills nav-stacked">
-          <?php include 'sidebar.php'; ?>
-        </ul>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="sidebar">
+            <div class="page-header">
+              <h2>Type</h2>
+            </div>
+            <ul class="nav nav-pills nav-stacked">
+              <?php include 'sidebar.php'; ?>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-8">
+        </div>
+    <div class="col-md-10">
         <div class="page-header">
-          <?php $title = $_GET['type']." Restaurants"; echo "<h1>".$title."<h1>"; ?>
+          <?php 
+            $type = $_GET['type']; 
+            $title = $type." Restaurants"; 
+            echo "<h2>".$title."<h2>"; 
+          ?>
         </div>
         <div class="container" id="restaurants">
-
+          <?php 
+            if($type=="All")
+              $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant";
+            else
+              $restaurantQuery = "SELECT * FROM fieldmazcolleen.restaurant R WHERE R.type = '".$type."'";
+            $rows = $data_access_layer->executeQuery($restaurantQuery); 
+            foreach($rows as $row){ echo "<p>".$row[0]."</p>"; } 
+          ?>
         </div>
       </div>
     </div>
