@@ -120,8 +120,8 @@ if(array_key_exists('login',$_POST))
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="restaurants.php">Restaurants</a></li>
-          <li><a href="raters.php">Raters</a></li>
+          <li><a href="restaurants.php?type=All">Restaurants</a></li>
+          <li><a href="raters.php?type=All">Raters</a></li>
         </ul>
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group search-bar">
@@ -226,21 +226,5 @@ if(array_key_exists('login',$_POST))
     </div>
   </div>
 </div>
-
-    <!-- Footer: About, Careers etc.-->    
-    <!--<footer class="footer">
-      <div class="container" align="bottom">
-        <p class="text-muted" class="footer footer-bottom"> About</p>
-      </div>
-    </footer>
-  </div>-->
-
-    <!-- Bootstrap core JavaScript -->
-    <!--================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./header:body:footer_files/jquery.min.js"></script>
-    <script src="./header:body:footer_files/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./header:body:footer_files/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
