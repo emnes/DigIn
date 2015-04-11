@@ -18,6 +18,7 @@ echo "
         <ul class=\"nav navbar-nav\">
           <li><a href=\"restaurants.php?type=All\">Restaurants</a></li>
           <li><a href=\"raters.php?type=All\">Raters</a></li>
+          <li><a href=\"menuitems.php?type=All\">Menu Items</a></li>
         </ul>
           <form class=\"navbar-form navbar-right\" role=\"search\">
             <div class=\"form-group search-bar\">
