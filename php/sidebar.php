@@ -22,6 +22,17 @@ foreach ($rows as $row)
 
 ?>
 
+<!-- <select id="first-choice">
+	<option selected value="base">Please Select</option>
+	<option value="beverages">Beverages</option>
+	<option value="snacks">Snacks</option>
+</select>
+
+<br>
+<select id="second-choice">
+	<option>Please choose from above</option>
+</select> -->
+
 <!-- <li><input type="checkbox" name="type[]" id="Indian" value="Indian"/><label for="Indian">Indian</label></li
 <li><input type="checkbox" name="type[]" id="Breakfast/Lunch" value="Breakfast/Lunch"/><label for="Breakfast/Lunch">Breakfast/Lunch</label></li> -->
 <!-- class=\"btn btn-default\" type=\"submit\" name=\"type[]\" id=\"" . $row[0] . "\" value=\"" . $row[0] . "\" onClick=\"changeRestaurantType(this.id)\"> -->
