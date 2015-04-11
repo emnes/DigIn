@@ -92,14 +92,14 @@ if(array_key_exists('login',$_POST))
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span10">
-      <div class="container" align="center">
+      <div class="container">
        
         <!--Most recent comments -->
         <div class="page-header">
-          <h1>Most Recent Ratings</h1>
+          <h1 align="center">Most Recent Ratings</h1>
         </div>
         
-        <!--8 ratings listed-->
+        <!--3 ratings listed-->
         <?php
         $mostRecentRatings = "SELECT * FROM mostRecentRatings()";
         $rows = $data_access_layer->executeQuery($mostRecentRatings);
@@ -111,10 +111,10 @@ if(array_key_exists('login',$_POST))
           <div class=\"col-md-12 column\">
           <h2>" . $row[5] . "</h2>
           <p> " . $row[1] . "</p>
-          <p> overall: " . $row[2] . "</p>
-          <p> by " . $row[0] . "</p>
+          <p> Overall: " . $row[2] . "</p>
+          <p> By " . $row[0] . "</p>
           <p> ". $row[3] . " </p>
-          <p>helpfulness: " . $row[4] . "</p>
+          <p> Helpfulness: " . $row[4] . "</p>
           </div>
           </div>
           </div>";

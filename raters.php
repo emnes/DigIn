@@ -53,7 +53,27 @@
             <div class="page-header">
               <h2>Type</h2>
             </div>
-            <ul class="nav nav-pills nav-stacked">
+            <ul class="nav nav/* ratingsOfAUser: restaurant ratings of a given user
+ * attribute needed:number of ratings
+ * attributes: all(from rating table)*/
+CREATE FUNCTION ratingsOfAUser(auserid CHAR(30)) RETURNS TABLE( _numOfRating BIGINT, _time timestamp, _userid CHAR(30),_price DECIMAL(2,1), _food DECIMAL(2,1), 
+  _mood DECIMAL(2,1), _staff DECIMAL(2,1),_globalrate DECIMAL(2,1), _comments VARCHAR(4000), _helpfulness INTEGER, restaurant_name VARCHAR(50), _address VARCHAR(50)) AS $$
+  BEGIN
+  RETURN QUERY
+  SELECT count , timestamp, T.userid, price, food, mood, staff, globalrate, comments, helpfulness, R.name, L.streetaddress
+  FROM (SELECT COUNT(*), userid
+        FROM rating
+        WHERE rating.userid = auserid
+        GROUP BY userid) T
+  INNER JOIN rating ON (T.userid = rating.userid)
+   INNER JOIN location L 
+                 ON ( L.locationid = rating.locationid ) 
+         INNER JOIN restaurant R 
+                 ON ( R.restaurantid = L.restaurantid );
+END;
+$$ LANGUAGE plpgsql; 
+
+-pills nav-stacked">
               <?php include 'php/sidebar-raters.php'; ?>
             </ul>
           </div>
@@ -84,7 +104,6 @@
               <a href=\"raterprofile.php?userid=".$row[0]."\">".$row[2]."</a>
               <h5> Member since: ".$row[3]."</h5>
               <h5> Reputation: ".$reputation."</h5>
-              <h5> Ratings: coming soon </h5>
               </div>"; 
             } 
           ?>
