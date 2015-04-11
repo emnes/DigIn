@@ -75,7 +75,8 @@
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Popularity</a></li>
               </ul>
-              </div></h5>
+              </div>
+          </h5>
         </div>
         <div class="container" id="restaurants">
           <?php 
