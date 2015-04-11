@@ -87,32 +87,35 @@ if(array_key_exists('login',$_POST))
         $title = $type." Menu Items"; 
         echo "<h2>".$title."<h2>"; 
         ?>
+
+        <button type="button" class="btn btn-success btn-md" role="button" onClick=""><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Menu Item</button>
+
+
       </div>
       <div class="container" id="restaurant">
         <?php 
-        if($type=="All")
-          $raterQuery = "SELECT * FROM fieldmazcolleen.menuItem";
-        else
-          $raterQuery = "SELECT * FROM fieldmazcolleen.menuItem R WHERE R.type = '".$type."'";
-        $rows = $data_access_layer->executeQuery($raterQuery); 
         
+        if($type=="All"){
+          $raterQuery = "SELECT DISTINCT M.name, M.price, M.description, R.name
+          FROM fieldmazcolleen.menuItem M, fieldmazcolleen.restaurant R WHERE M.restaurantid = R.restaurantid";
+        }
+        else{
+          $raterQuery = "SELECT DISTINCT M.name, M.price, M.description, R.name
+          FROM fieldmazcolleen.menuItem M, fieldmazcolleen.restaurant R WHERE M.type = '".$type."' AND M.restaurantid = R.restaurantid";
+        }
+        $rows = $data_access_layer->executeQuery($raterQuery); 
+
         foreach($rows as $row){ 
-          $restaurantname = "SELECT * FROM fieldmazcolleen.restaurant R WHERE R.restaurantid = '".$row[6]."'";
-          
-          if($row[5]==0)
+          if($row[1]==0)
             $price = " No information provided";
           else
-            $price = $row[5];
-          if($row[3]==0)
-            $category = " No information provided";
-          else
-            $category = $row[5];
+            $price = $row[1];
 
           echo "<div class=\"row clearfix\">
-          <h2>".$row[1]."</h2>
+          <h2>".$row[0]."</h2>
           <h5> Price: $".$price."</h5>
-          <h5>".$row[4]."</h5>
-          <h5> From: ".$restaurant[1]."</h5>
+          <h5>".$row[2]."</h5>
+          <h5> From: ".$row[3]."</h5>
           </div>"; 
         } 
         ?>
