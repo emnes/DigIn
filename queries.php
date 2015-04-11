@@ -14,67 +14,115 @@
 </head>
 <!-- Deals with Logging in and Storing sessions -->
 <?php
-  include 'php/data_access_layer.php';
-  $data_access_layer = new DataAccessLayer();
+include 'php/data_access_layer.php';
+$data_access_layer = new DataAccessLayer();
 
-  session_start();
+session_start();
   // Check if login button clicked and login value is in POST
-  if(array_key_exists('login',$_POST))
-  {
+if(array_key_exists('login',$_POST))
+{
     // Retrieve email and password
-    $logInEmail=$_POST['logInEmail'];
-    $logInPass=$_POST['logInPass'];
+  $logInEmail=$_POST['logInEmail'];
+  $logInPass=$_POST['logInPass'];
 
     // Query for user
-    $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
-    $result = $data_access_layer->executeQuery($logInQuery);
-    $result_count = count($result);
+  $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
+  $result = $data_access_layer->executeQuery($logInQuery);
+  $result_count = count($result);
     // If user exists
-    if($row_count>0)
-    {
+  if($row_count>0)
+  {
       // Store log in email under log in email
-      $_SESSION['logInEmail']=$logInEmail;
+    $_SESSION['logInEmail']=$logInEmail;
       // Go to this location
-      header("location: restaurants.php");
-      exit;
-    }
-    pg_free_result($result);
+    header("location: restaurants.php");
+    exit;
   }
-  ?>
+  pg_free_result($result);
+}
+?>
 <body>
-<?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
-<!-- Begin page content -->
+  <?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
+  <!-- Begin page content -->
 
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="col-md-2">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="sidebar">
-            <div class="page-header">
-              <h2>Type</h2>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-md-2">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="sidebar">
+              <div class="page-header">
+                <h2>Type</h2>
+              </div>
+              <ul class="nav nav-pills nav-stacked">
+                <?php include 'php/sidebar-queries.php'; ?>
+              </ul>
             </div>
-            <ul class="nav nav-pills nav-stacked">
-              <?php include 'php/sidebar-queries.php'; ?>
-            </ul>
           </div>
         </div>
       </div>
-        </div>
 
-    <div class="col-md-10">
+      <div class="col-md-10">
         <div class="page-header">
           <?php 
-            $type = $_GET['type']; 
-            $title = $type." Queries"; 
-            echo "<h2>".$title."<h2>"; 
+          $type = $_GET['type']; 
+          $title = $type." Queries"; 
+          echo "<h2>".$title."<h2>"; 
           ?>
         </div>
         <div class="container" id="restaurants">
-      
+          <?php
+          if("All" == $_GET['type'])
+            echo "<div class=\"row clearfix\">
+          <ul><a href=\"queryresult.php?type=A\">A</a></ul>
+          <ul><a href=\"queryresult.php?type=B\">B</a></ul>
+          <ul><a href=\"queryresult.php?type=C\">C</a></ul>
+          <ul><a href=\"queryresult.php?type=D\">D</a></ul>
+          <ul><a href=\"queryresult.php?type=E\">E</a></ul>
+          <ul><a href=\"queryresult.php?type=F\">F</a></ul>
+          <ul><a href=\"queryresult.php?type=G\">G</a></ul>
+          <ul><a href=\"queryresult.php?type=H\">H</a></ul>
+          <ul><a href=\"queryresult.php?type=I\">I</a></ul>
+          <ul><a href=\"queryresult.php?type=J\">J</a></ul>
+          <ul><a href=\"queryresult.php?type=K\">K</a></ul>
+          <ul><a href=\"queryresult.php?type=L\">L</a></ul>
+          <ul><a href=\"queryresult.php?type=M\">M</a></ul>
+          <ul><a href=\"queryresult.php?type=N\">N</a></ul>
+          <ul><a href=\"queryresult.php?type=O\">O</a></ul>
+          </div>"; 
+
+          if("Restaurants and Menus" == $_GET['type'])
+            echo "<div class=\"row clearfix\">
+          <ul><a href=\"queryresult.php?type=A\">A</a></ul>
+          <ul><a href=\"queryresult.php?type=B\">B</a></ul>
+          <ul><a href=\"queryresult.php?type=C\">C</a></ul>
+          <ul><a href=\"queryresult.php?type=D\">D</a></ul>
+          <ul><a href=\"queryresult.php?type=E\">E</a></ul>
+          </div>"; 
+
+
+          if("Ratings of Restaurants" == $_GET['type'])
+            echo "<div class=\"row clearfix\">
+          <ul><a href=\"queryresult.php?type=F\">F</a></ul>
+          <ul><a href=\"queryresult.php?type=G\">G</a></ul>
+          <ul><a href=\"queryresult.php?type=H\">H</a></ul>
+          <ul><a href=\"queryresult.php?type=I\">I</a></ul>
+          <ul><a href=\"queryresult.php?type=J\">J</a></ul>
+          </div>"; 
+
+          if("Raters and Their Ratings" == $_GET['type'])
+            echo "<div class=\"row clearfix\">
+          <ul><a href=\"queryresult.php?type=K\">K</a></ul>
+          <ul><a href=\"queryresult.php?type=L\">L</a></ul>
+          <ul><a href=\"queryresult.php?type=M\">M</a></ul>
+          <ul><a href=\"queryresult.php?type=N\">N</a></ul>
+          <ul><a href=\"queryresult.php?type=O\">O</a></ul>
+          </div>"; 
+          ?>
+
         </div>
       </div>
     </div>
   </div>
-  </body>
+</body>
 </html>
