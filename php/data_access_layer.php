@@ -45,4 +45,10 @@ class DataAccessLayer{
 		
 		return $queryResult;
 	}
+
+	public function countRows($result)
+	{
+		
+		return numOfRows;
+	}
 }

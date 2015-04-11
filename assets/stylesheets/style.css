@@ -84,3 +84,19 @@ footer
 .dropdown{
   display: inline-block;
 }
+.page-header{
+    text-align: center;
+}
+.restaurant-description p{
+    font-size: 20px;
+    float: left;
+}
+.restaurant-description #rest-attribute{
+    font-weight: bold;
+}
+.restaurant-description #rating{
+    font-size: 40px;
+}
+.restaurant-description a{
+    float: right;
+}

@@ -53,82 +53,105 @@
     <!-- Begin page content -->
 
     <!-- Restaurant General Info-->
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span10">
+    <div class="container">
+      <div class="row">
           <?php
         // If likeness doesn't show or is 0
-          if($row[8]==0)
+          if($row[8]==-1)
             $likeness = "Not yet rated";
           else
-            $likeness = $row[8]." rating";
+            $likeness = $row[8]." <span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>";
 
           echo "
           <div class=\"page-header\" align=\"center\">
-          <h2>" . $row[0] . "</h2>
+          <h2>".$row[0]."</h2>
           <button type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\" onClick=\"\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Restaurant</button>
           </div>
-          <div class=\"container\">
-          <div class=\"row clearfix\">
-          <div class=\"col-md-12 column\" align=\"center\">
-          <p> Type: " . $row[1] . " </p>
-          <p> Overall: " . $likeness . "</p>
-          <p> Located at: " . $row[5] . "</p>
-          <p> Phone number: " . $row[4] . "</p>
-          <p> Open from: " . $row[6] . " to: " . $row[7] . "</p>
-          <p> Manager : " . $row[2] . "</p>
-          <p> First opened in: " . $row[3] . "</p>
-          </div>
-          </div>
+          <div class=\"restaurant-description\">
+          <p>  <span id=\"rating\">".$likeness."</span> </br>
+          <span id=\"rest-attribute\">Type:</span> " . $row[1] . " <br/> 
+            <span id=\"rest-attribute\">Located at:</span> " . $row[5] . "<br/>
+            <span id=\"rest-attribute\">Phone number:</span> " . $row[4] . "<br/>
+            <span id=\"rest-attribute\">Open from:</span> " . $row[6] . " to: " . $row[7] . "<br/>
+            <span id=\"rest-attribute\">Manager :</span> " . $row[2] . "<br/>
+            <span id=\"rest-attribute\">First opened in:</span> " . $row[3] . "</p>
+          <a href=\"https://www.google.com/maps/place/".$row[0]." near ".$row[5].", Ottawa\">
+          <img src=\"http://maps.googleapis.com/maps/api/staticmap?center=".$row[5]."&zoom=13&scale=1&size=400x250&maptype=roadmap&format=png&visual_refresh=true\"/>
+          </a>
           </div>";
           ?>
-        </div>
       </div>
-      <div class="row-fluid">
-          <div class="page-header">
-            <h1 align="center">Menu</h1>
-          </div>
+      <div class="row">
+        <!--MenuItems of a Restaurant-->
+        <?php $locationId = $_GET['locationid']; 
+        $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuItems('".$locationId."')";
+        $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
+        if(count($rows)>0){
+            echo "<div class=\"page-header\">
+            <h1>Menu</h1>
+            </div>";
 
-          <!--MenuItems of a Restaurant-->
-          <?php $locationId = $_GET['locationid']; 
-          $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuItems('".$locationId."')";
-          $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
+            foreach ($rows as $row) 
+            {
+                // If price doesn't show or is 0
+              if($row[4]==0)
+                $price = "Not Indicated";
+              else
+                $price = $row[4];
+
+              echo "
+              <div class=\"row\">
+              <div class=\"col-md-10 column\">
+              <h3>" . $row[0] . "</h3>
+              <p> Type: " . $row[1] . "</p>
+              <p> Category: " . $row[2] . "</p>
+              <p> Price: $" . $price . "</p>
+              <p> " . $row[3] . "</p>
+              </div>
+              </div>";
+            } 
+          }
+        ?>
+      </div>
+      <div class="row">
+        <!--Menu Ratings-->
+        <?php $locationId = $_GET['locationid']; 
+        $menuRatingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuRatingsOfARestaurant('".$locationId."')";
+        $rows = $data_access_layer->executeQuery($menuRatingsOfARestaurant);
+        if(count($rows)>0){
+          echo "<div class=\"page-header\">
+            <h1>Menu Item Ratings</h1>
+          </div>";
+          echo "<h3>".count($rows)." Ratings </h3>";
           foreach ($rows as $row) 
           {
-            // If price doesn't show or is 0
-            if($row[4]==0)
-            $price = "Not Indicated";
-            else
-            $price = $row[4];
-
             echo "
-            <div class=\"container\">
-            <div class=\"row clearfix\">
-            <div class=\"col-md-10 column\">
-            <h3>" . $row[0] . "</h3>
-            <p> Type: " . $row[1] . "</p>
-            <p> Category: " . $row[2] . "</p>
-            <p> Price: $" . $price . "</p>
-            <p> " . $row[3] . "</p>
-            </div>
-            </div>
+            <div class=\"row\">
+            <h3>".$row[0] . "</h3>
+            <p> Menu item: " . $row[5] . "</p>
+            <p> At " . $row[1] . "</p>
+            <p> " . $row[3] . " </p>
+            <p> Rating: " . $row[2] . "</p>
+            <p> Price: " . $row[4] . "</p>
             </div>";
-            } 
-            ?>
-          </div>
-        <div class="row-fluid">
-          <div class="col-md-6 column">
-            <div class="page-header">
+          }
+        }
+        ?>
+      </div>
+      <div class="row">
+          <!--Ratings of a Restaurant-->
+          <?php $locationId = $_GET['locationid']; 
+          $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingsOfARestaurant('".$locationId."')";
+          $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
+          if(count($rows)>0){
+            echo "<div class=\"page-header\">
               <h1>Restaurant Ratings</h1>
-            </div>
-            <!--Ratings of a Restaurant-->
-            <?php $locationId = $_GET['locationid']; 
-            $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingsOfARestaurant('".$locationId."')";
-            $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
+            </div>";
+            echo "<h3>".count($rows)." Ratings </h3>";
             foreach ($rows as $row) 
             {
               echo "
-              <div class=\"row-fluid\">
+              <div class=\"row\">
               <h3>" . $row[0] . "</h3>
               <p> At " . $row[1] . "</p>
               <p> " . $row[9] . "</p>
@@ -140,33 +163,9 @@
               <p> Helpfulness: " . $row[10] . "</p>
               </div>";
             }
-            ?>
-          </div>
-
-          <div class="col-md-6 column">
-            <div class="page-header">
-              <h1>Menu Items Ratings</h1>
-            </div>
-            <!--Menu Ratings-->
-            <?php $locationId = $_GET['locationid']; 
-            $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuRatingsOfARestaurant('".$locationId."')";
-            $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
-            foreach ($rows as $row) 
-            {
-              echo "
-
-              <div class=\"row-fluid\">
-              <h3>" . $row[0] . "</h3>
-              <p> Menu item: " . $row[5] . "</p>
-              <p> At " . $row[1] . "</p>
-              <p> " . $row[3] . " </p>
-              <p> Rating: " . $row[2] . "</p>
-              <p> Price: " . $row[4] . "</p>
-              </div>";
-            }
-            ?>
-          </div>
+          }
+          ?>
         </div>
       </div>
-    </body>
-    </html>
+  </body>
+  </html>

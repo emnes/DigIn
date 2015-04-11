@@ -1,6 +1,5 @@
 <?php 
-echo 
-"<body>
+echo "
   <!-- Modal View for Log In -->
     <div class=\"modal fade\" id=\"logInModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"logInModal\" aria-hidden=\"true\">
     <div class=\"modal-dialog\">
