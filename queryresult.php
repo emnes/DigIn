@@ -76,34 +76,213 @@
       <div class="row-fluid">
 
         <?php 
-        if("B" == $query) {
-          $getMenu = "SELECT * FROM fieldmazcolleen.getMenu(\"CHEZ8\")";
-          $rows = $data_access_layer->executeQuery($getMenu);
+        if("E" == $query) {
+          $getAvgPrice = "SELECT * FROM fieldmazcolleen.getAvgPrice()";
+          $rows = $data_access_layer->executeQuery($getAvgPrice);
+          foreach ($rows as $row) 
+          {
+            //If category doesn't show or is 0
+          if($row[1]==0)
+            $category = "beverage";
+          else
+            $category = $row[1];
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h3> Type: " . $row[0] . "</h3>
+            <p> Category: " . $category . "</p>
+            <p> Price: $" . $row[2]. "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+        if("G" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
             echo "
             <div class=\"container\">
             <div class=\"row clearfix\">
             <div class=\"col-md-12 column\">
-            <h2>" . $row[0] . "</h2>
+            <h2> " . $row[0] . "</h2>
             <p> Type: " . $row[1] . "</p>
-            <p> Category: " . $row[2] . "</p>
-            <p> Price: $" . $price . "</p>
-            <p> " . $row[3] . "</p>
+            <p> Address: " . $row[2] . "</p>
+            <p> Phone number: $" . $row[3]. "</p>
             </div>
             </div>
             </div>";
           }
         }
+
+        if("H" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[0] . "</h2>
+            <p> Location: " . $row[1] . "</p>
+            <p> First opened in: " . $row[2] . "</p>
+            <p> At: " . $row[3]. "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+        if("I" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[1] . "</h2>
+            <p> Food rating: " . $row[5] . "</p>
+            <p> Location: " . $row[3] . "</p>
+            <p> Phone number: " . $row[4] . "</p>
+            <p> Rater: " . $row[2]. "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+         if("J" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[1] . "</h2>
+            <p> Food rating: " . $row[5] . "</p>
+            <p> Location: " . $row[3] . "</p>
+            <p> Phone number: " . $row[4] . "</p>
+            <p> Rater: " . $row[2]. "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+         if("K" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[0] . "</h2>
+            <p> Member since: " . $row[1] . "</p>
+            <p> Reputation: " . $row[2] . "</p>
+            <p> Restaurant: " . $row[3] . "</p>
+            <p> Rated at: " . $row[4]. "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+        if("L" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[0] . "</h2>
+            <p> Member since: " . $row[1] . "</p>
+            <p> Reputation: " . $row[2] . "</p>
+            <p> Restaurant: " . $row[3] . "</p>
+            <p> Rated at: " . $row[4]. "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+        if("M" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[0] . "</h2>
+            <p> Reputation: " . $row[1] . "</p>
+            <p> Restaurant: " . $row[3] . "</p>
+            <p> Price: " . $row[4]. "</p>
+            <p> " . $row[2]. "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+        if("N" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[0] . "</h2>
+            <p> Email: " . $row[1] . "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+        if("O" == $query) {
+          $ = "SELECT * FROM fieldmazcolleen.()";
+          $rows = $data_access_layer->executeQuery();
+          foreach ($rows as $row) 
+          {
+            echo "
+            <div class=\"container\">
+            <div class=\"row clearfix\">
+            <div class=\"col-md-12 column\">
+            <h2> " . $row[0] . "</h2>
+            <p> (" . $row[1] . ") </p>
+            <p> Email: " . $row[2] "</p>
+            <p> Restarant Name: " . $row[3] "</p>
+            <p> Overall Restaurant Rating: " . $row[4] "</p>
+            <p> Comments: " . $row[5] "</p>
+            </div>
+            </div>
+            </div>";
+          }
+        }
+
+        rater.name, rater.type, rater.email, restaurant.name, rating.globalrate,rating.comments
+
+
+
+
         ?>
       </div>
     </div>
-
-
-
-
-
-
 
   </body>
   </html>
