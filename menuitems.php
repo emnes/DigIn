@@ -95,7 +95,10 @@ if(array_key_exists('login',$_POST))
         else
           $raterQuery = "SELECT * FROM fieldmazcolleen.menuItem R WHERE R.type = '".$type."'";
         $rows = $data_access_layer->executeQuery($raterQuery); 
+        
         foreach($rows as $row){ 
+          $restaurantname = "SELECT * FROM fieldmazcolleen.restaurant R WHERE R.restaurantid = '".$row[6]."'";
+          
           if($row[5]==0)
             $price = " No information provided";
           else
@@ -105,30 +108,17 @@ if(array_key_exists('login',$_POST))
           else
             $category = $row[5];
 
-
           echo "<div class=\"row clearfix\">
-          <a href=\"menuprofile.php?itemid=".$row[0]."\">".$row[1]."</a>
+          <h2>".$row[1]."</h2>
           <h5> Price: $".$price."</h5>
+          <h5>".$row[4]."</h5>
+          <h5> From: ".$restaurant[1]."</h5>
           </div>"; 
         } 
         ?>
       </div>
     </div>
   </div>
-
-  <select id="first-choice">
-    <option selected value="base">Please Select</option>
-    <option value="beverages">Beverages</option>
-    <option value="snacks">Snacks</option>
-  </select>
-
-  <br>
-
-  <select id="second-choice">
-    <option>Please choose from above</option>
-  </select>
-
-
 
 </div>
 </body>

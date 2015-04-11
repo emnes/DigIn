@@ -71,7 +71,7 @@
           <div class=\"container\">
           <div class=\"row clearfix\">
           <div class=\"col-md-12 column\">
-          <p> (" . $row[5] . ") </p>
+          <p> (" . $row[1] . ") </p>
           <p> Overall: " . $likeness . "</p>
           <p> Located at: " . $row[5] . "</p>
           <p> Phone number: " . $row[4] . "</p>
@@ -103,10 +103,9 @@
           {
             // If price doesn't show or is 0
             if($row[4]==0)
-            $price = "not indicated";
+            $price = " not indicated";
             else
             $price = $row[4];
-
 
             echo "
             <div class=\"container\">

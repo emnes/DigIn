@@ -10,7 +10,7 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
-  <title> Restaurants | Dig In </title>
+  <title> Queries | Dig In </title>
 </head>
 <!-- Deals with Logging in and Storing sessions -->
 <?php
@@ -55,7 +55,7 @@
               <h2>Type</h2>
             </div>
             <ul class="nav nav-pills nav-stacked">
-              <?php include 'php/sidebar.php'; ?>
+              <?php include 'php/sidebar-queries.php'; ?>
             </ul>
           </div>
         </div>
@@ -66,46 +66,12 @@
         <div class="page-header">
           <?php 
             $type = $_GET['type']; 
-            $title = $type." Restaurants"; 
+            $title = $type." Queries"; 
             echo "<h2>".$title."<h2>"; 
           ?>
-          <h5>Sort by: <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-               Popularity
-              <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Popularity</a></li>
-              </ul>
-              </div></h5>
         </div>
         <div class="container" id="restaurants">
-          <?php 
-            if($type=="All"){
-              $restaurantQuery = "SELECT DISTINCT L.locationid, R.name, L.firstopendate, L.managername, L.phonenumber, L.streetaddress, L.houropen, L.hourclose, L.likeness
-               FROM fieldmazcolleen.location L, fieldmazcolleen.restaurant R WHERE L.restaurantid = R.restaurantid";
-             }
-            else{
-              $restaurantQuery = "SELECT DISTINCT L.locationid, R.name, L.firstopendate, L.managername, L.phonenumber, L.streetaddress, L.houropen, L.hourclose, L.likeness
-               FROM fieldmazcolleen.location L, fieldmazcolleen.restaurant R WHERE R.type = '".$type."' AND L.restaurantid = R.restaurantid";
-             }
-            $rows = $data_access_layer->executeQuery($restaurantQuery);
-            foreach($rows as $row){ 
-                // If likeness doesn't show or is 0
-                if($row[8]==0)
-                  $likeness = "Not yet rated";
-                else
-                  $likeness = $row[8]." rating";
-                echo "<div class=\"row clearfix\">
-                <a href=\"restaurantprofile.php?locationid=".$row[0]."\">".$row[1]." (".$likeness.")</a>
-                <h5> Address: ".$row[5]."</h5>
-                <h5> Phone: ".$row[4]."</h5>
-                <h5> Opening hours: ".$row[6]." to ".$row[7]."</h5>
-                <h5> Open since: ".$row[2]."</h5>
-                <h5> Manager name: ".$row[3]."</h5>
-                </div>"; 
-              } 
-          ?>
+      
         </div>
       </div>
     </div>
