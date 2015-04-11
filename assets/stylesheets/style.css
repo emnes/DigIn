@@ -52,7 +52,6 @@ footer
     list-style-type:none;
     padding: 0;
 }
-
 .panel-body
 {
     padding-top: 0px;
@@ -66,8 +65,12 @@ footer
 
 }
 #restaurants a{
+    display: inline-block;
     font-size: 25px;
     color: #006dcc;
+}
+#restaurants h3{
+    display: inline-block;
 }
 .page-header h2{
     display:inline-block;
