@@ -74,45 +74,49 @@ if(array_key_exists('login',$_POST))
           <?php
           if("All" == $_GET['type'])
             echo "<div class=\"row clearfix\">
-          <ul><a href=\"queriesresults.php?type=A\">A</a></ul>
-          <ul><a href=\"queriesresults.php?type=B\">B</a></ul>
-          <ul><a href=\"queriesresults.php?type=C\">C</a></ul>
-          <ul><a href=\"queriesresults.php?type=D\">D</a></ul>
-          <ul><a href=\"queriesresults.php?type=E\">E</a></ul>
-          <ul><a href=\"queriesresults.php?type=F\">F</a></ul>
-          <ul><a href=\"queriesresults.php?type=G\">G</a></ul>
-          <ul><a href=\"queriesresults.php?type=H\">H</a></ul>
-          <ul><a href=\"queriesresults.php?type=I\">I</a></ul>
-          <ul><a href=\"queriesresults.php?type=J\">J</a></ul>
-          <ul><a href=\"queriesresults.php?type=K\">K</a></ul>
-          <ul><a href=\"queriesresults.php?type=L\">L</a></ul>
-          <ul><a href=\"queriesresults.php?type=M\">M</a></ul>
-          <ul><a href=\"queriesresults.php?type=N\">N</a></ul>
-          <ul><a href=\"queriesresults.php?type=O\">O</a></ul>
+          <ul><a href=\"queryresult.php?type=A\">A</a></ul>
+          <ul><a href=\"queryresult.php?type=B\">B</a></ul>
+          <ul><a href=\"queryresult.php?type=C\">C</a></ul>
+          <ul><a href=\"queryresult.php?type=D\">D</a></ul>
+          <ul><a href=\"queryresult.php?type=E\">E</a></ul>
+          <ul><a href=\"queryresult.php?type=F\">F</a></ul>
+          <ul><a href=\"queryresult.php?type=G\">G</a></ul>
+          <ul><a href=\"queryresult.php?type=H\">H</a></ul>
+          <ul><a href=\"queryresult.php?type=I\">I</a></ul>
+          <ul><a href=\"queryresult.php?type=J\">J</a></ul>
+          <ul><a href=\"queryresult.php?type=K\">K</a></ul>
+          <ul><a href=\"queryresult.php?type=L\">L</a></ul>
+          <ul><a href=\"queryresult.php?type=M\">M</a></ul>
+          <ul><a href=\"queryresult.php?type=N\">N</a></ul>
+          <ul><a href=\"queryresult.php?type=O\">O</a></ul>
           </div>"; 
 
           if("Restaurants and Menus" == $_GET['type'])
             echo "<div class=\"row clearfix\">
-          <ul><a href=\"queriesresults.php?type=A\">A</a></ul>
-          <ul><a href=\"queriesresults.php?type=B\">B</a></ul>
-          <ul><a href=\"queriesresults.php?type=C\">C</a></ul>
-          <ul><a href=\"queriesresults.php?type=D\">D</a></ul>
-          <ul><a href=\"queriesresults.php?type=E\">E</a></ul>
+          <ul><a href=\"queryresult.php?type=A\">A</a></ul>
+          <ul><a href=\"queryresult.php?type=B\">B</a></ul>
+          <ul><a href=\"queryresult.php?type=C\">C</a></ul>
+          <ul><a href=\"queryresult.php?type=D\">D</a></ul>
+          <ul><a href=\"queryresult.php?type=E\">E</a></ul>
           </div>"; 
 
 
-          if("All" == $_GET['type'])
+          if("Ratings of Restaurants" == $_GET['type'])
             echo "<div class=\"row clearfix\">
-          <ul><a href=\"queriesresults.php?type=F\">F</a></ul>
-          <ul><a href=\"queriesresults.php?type=G\">G</a></ul>
-          <ul><a href=\"queriesresults.php?type=H\">H</a></ul>
-          <ul><a href=\"queriesresults.php?type=I\">I</a></ul>
-          <ul><a href=\"queriesresults.php?type=J\">J</a></ul>
-          <ul><a href=\"queriesresults.php?type=K\">K</a></ul>
-          <ul><a href=\"queriesresults.php?type=L\">L</a></ul>
-          <ul><a href=\"queriesresults.php?type=M\">M</a></ul>
-          <ul><a href=\"queriesresults.php?type=N\">N</a></ul>
-          <ul><a href=\"queriesresults.php?type=O\">O</a></ul>
+          <ul><a href=\"queryresult.php?type=F\">F</a></ul>
+          <ul><a href=\"queryresult.php?type=G\">G</a></ul>
+          <ul><a href=\"queryresult.php?type=H\">H</a></ul>
+          <ul><a href=\"queryresult.php?type=I\">I</a></ul>
+          <ul><a href=\"queryresult.php?type=J\">J</a></ul>
+          </div>"; 
+
+          if("Raters and Their Ratings" == $_GET['type'])
+            echo "<div class=\"row clearfix\">
+          <ul><a href=\"queryresult.php?type=K\">K</a></ul>
+          <ul><a href=\"queryresult.php?type=L\">L</a></ul>
+          <ul><a href=\"queryresult.php?type=M\">M</a></ul>
+          <ul><a href=\"queryresult.php?type=N\">N</a></ul>
+          <ul><a href=\"queryresult.php?type=O\">O</a></ul>
           </div>"; 
           ?>
 
