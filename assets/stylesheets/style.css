@@ -65,3 +65,13 @@ footer
     width: 120px;
 
 }
+#restaurants a{
+    font-size: 25px;
+    color: #006dcc;
+}
+.page-header h2{
+    display:inline-block;
+}
+.dropdown{
+  display: inline-block;
+}
