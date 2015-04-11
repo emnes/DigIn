@@ -86,6 +86,43 @@ if(array_key_exists('login',$_POST))
     </div>
   </div>
 
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-6 column">
+        <div class="page-header">
+          <h1>Restaurant Ratings</h1>
+        </div>
+        
+        <!--MenuItems of a Restaurant-->
+        <?php $locationId = $_GET['locationid']; 
+        $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingsOfARestaurant('".$locationId."')";
+        $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
+        foreach ($rows as $row) 
+        {
+          echo "
+          <div class=\"container\">
+          <div class=\"row clearfix\">
+          <div class=\"col-md-12 column\">
+          <h2>" . $row[0] . "</h2>
+          <p> at " . $row[1] . "</p>
+          <p> " . $row[9] . "</p>
+          <p> price: " . $row[4] . "</p>
+          <p> food: " . $row[5] . "</p>
+          <p> mood: " . $row[6] . "</p>
+          <p> staff: " . $row[7] . "</p>
+          <p> overall: " . $row[8] . "</p>
+          <p> helpfulness: " . $row[10] . "</p>
+          </div>
+          </div>
+          </div>"; 
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="container">
   <div class="row clearfix">
     <div class="col-md-6 column">
