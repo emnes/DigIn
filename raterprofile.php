@@ -115,7 +115,6 @@
             <p> Food: " . $row[4] . "</p>
             <p> Mood: " . $row[5] . "</p>
             <p> Staff: " . $row[6] . "</p>
-            <p> " . $row[1] . "</p>
             <p> Helpfulness:" . $row[9] . "</p>
             </div>
             </div>
