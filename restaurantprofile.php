@@ -64,14 +64,14 @@
             $likeness = $row[8]." rating";
 
           echo "
-          <div class=\"container\" align=\"left\">
-          <div class=\"page-header\" align=\"left\">
-          <h1>" . $row[0] . "</h1>
+          <div class=\"page-header\" align=\"center\">
+          <h2>" . $row[0] . "</h2>
+          <button type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\" onClick=\"\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Restaurant</button>
           </div>
           <div class=\"container\">
           <div class=\"row clearfix\">
-          <div class=\"col-md-12 column\">
-          <p> (" . $row[1] . ") </p>
+          <div class=\"col-md-12 column\" align=\"center\">
+          <p> Type: " . $row[1] . " </p>
           <p> Overall: " . $likeness . "</p>
           <p> Located at: " . $row[5] . "</p>
           <p> Phone number: " . $row[4] . "</p>
@@ -80,19 +80,13 @@
           <p> First opened in: " . $row[3] . "</p>
           </div>
           </div>
-          </div>
           </div>";
           ?>
         </div>
       </div>
-    </div>
-
-
-
-    <div class="container-dynamic">
       <div class="row-fluid">
           <div class="page-header">
-            <h1 align="center">Menu Items</h1>
+            <h1 align="center">Menu</h1>
           </div>
 
           <!--MenuItems of a Restaurant-->
@@ -103,15 +97,15 @@
           {
             // If price doesn't show or is 0
             if($row[4]==0)
-            $price = " not indicated";
+            $price = "Not Indicated";
             else
             $price = $row[4];
 
             echo "
             <div class=\"container\">
             <div class=\"row clearfix\">
-            <div class=\"col-md-12 column\">
-            <h2>" . $row[0] . "</h2>
+            <div class=\"col-md-10 column\">
+            <h3>" . $row[0] . "</h3>
             <p> Type: " . $row[1] . "</p>
             <p> Category: " . $row[2] . "</p>
             <p> Price: $" . $price . "</p>
@@ -122,17 +116,11 @@
             } 
             ?>
           </div>
-        </div>
-
-
-
-      <div class="container">
-        <div class="row clearfix">
+        <div class="row-fluid">
           <div class="col-md-6 column">
             <div class="page-header">
               <h1>Restaurant Ratings</h1>
             </div>
-
             <!--Ratings of a Restaurant-->
             <?php $locationId = $_GET['locationid']; 
             $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.ratingsOfARestaurant('".$locationId."')";
@@ -140,10 +128,8 @@
             foreach ($rows as $row) 
             {
               echo "
-              <div class=\"container\">
-              <div class=\"row clearfix\">
-              <div class=\"col-md-12 column\">
-              <h2>" . $row[0] . "</h2>
+              <div class=\"row-fluid\">
+              <h3>" . $row[0] . "</h3>
               <p> At " . $row[1] . "</p>
               <p> " . $row[9] . "</p>
               <p> Price: " . $row[4] . "</p>
@@ -152,8 +138,6 @@
               <p> Staff: " . $row[7] . "</p>
               <p> Overall: " . $row[8] . "</p>
               <p> Helpfulness: " . $row[10] . "</p>
-              </div>
-              </div>
               </div>";
             }
             ?>
@@ -161,7 +145,7 @@
 
           <div class="col-md-6 column">
             <div class="page-header">
-              <h1>Menu Ratings</h1>
+              <h1>Menu Items Ratings</h1>
             </div>
             <!--Menu Ratings-->
             <?php $locationId = $_GET['locationid']; 
@@ -170,24 +154,19 @@
             foreach ($rows as $row) 
             {
               echo "
-              <div class=\"container\">
-              <div class=\"row clearfix\">
-              <div class=\"col-md-12 column\">
-              <h2>" . $row[0] . "</h2>
+
+              <div class=\"row-fluid\">
+              <h3>" . $row[0] . "</h3>
               <p> Menu item: " . $row[5] . "</p>
               <p> At " . $row[1] . "</p>
               <p> " . $row[3] . " </p>
               <p> Rating: " . $row[2] . "</p>
               <p> Price: " . $row[4] . "</p>
-              </div>
-              </div>
               </div>";
             }
             ?>
           </div>
         </div>
       </div>
-
-
     </body>
     </html>

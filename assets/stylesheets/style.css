@@ -74,6 +74,7 @@ footer
 }
 .page-header h2{
     display:inline-block;
+    margin-right: 8px;
 }
 .page-header h5{
     display: inline-block;

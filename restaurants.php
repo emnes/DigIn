@@ -69,6 +69,8 @@
             $title = $type." Restaurants"; 
             echo "<h2>".$title."<h2>"; 
           ?>
+          <button type="button" class="btn btn-success btn-md" role="button" onClick=""><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Restaurant</button>
+
           <h5><div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                Sort By
@@ -104,9 +106,9 @@
                 else
                   $likeness = $row[8]." <span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>";
                 echo "<div class=\"row clearfix\">
-                <a href=\"restaurantprofile.php?locationid=".$row[0]."\">".$row[1]."&nbsp;&nbsp;"."</a><h3>".$likeness."</h3>
+                <a href=\"restaurantprofile.php?locationid=".$row[0]."\">".$row[1]."</a>&nbsp;&nbsp;<h3>".$likeness."</h3>
                 <h5> Address: ".$row[5]."</h5>
-                <h5> Phone: ".$row[4]."<&nbsp;
+                <h5> Phone: ".$row[4]."
                 <h5> Opening hours: ".$row[6]." to ".$row[7]."</h5>
                 <h5> Open since: ".$row[2]."</h5>
                 <h5> Manager name: ".$row[3]."</h5>
