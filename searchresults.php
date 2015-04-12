@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  $name = "";
+  $userid = "";
+  if(array_key_exists('name', $_SESSION) && array_key_exists('userid', $_SESSION)){
+    $name = $_SESSION['name'];
+    $userid = $_SESSION['userid'];
+  }
+?>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
