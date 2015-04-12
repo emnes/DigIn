@@ -13,6 +13,7 @@
   <title> Restaurants | Dig In </title>
 </head>
 <!-- Deals with Logging in and Storing sessions -->
+
 <?php
   include 'php/data_access_layer.php';
   $data_access_layer = new DataAccessLayer();
@@ -41,6 +42,7 @@
     pg_free_result($result);
   }
   ?>
+
 <body>
 <?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
 <!-- Begin page content -->

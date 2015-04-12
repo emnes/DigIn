@@ -100,8 +100,8 @@
         }
 
         if("G" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query7 = "SELECT * FROM fieldmazcolleen.query7()";
+          $rows = $data_access_layer->executeQuery($query7);
           foreach ($rows as $row) 
           {
             echo "
@@ -111,7 +111,7 @@
             <h2> " . $row[0] . "</h2>
             <p> Type: " . $row[1] . "</p>
             <p> Address: " . $row[2] . "</p>
-            <p> Phone number: $" . $row[3]. "</p>
+            <p> Phone number: " . $row[3]. "</p>
             </div>
             </div>
             </div>";
@@ -119,8 +119,8 @@
         }
 
         if("H" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query8 = "SELECT * FROM fieldmazcolleen.query8()";
+          $rows = $data_access_layer->executeQuery($query8);
           foreach ($rows as $row) 
           {
             echo "
@@ -138,8 +138,8 @@
         }
 
         if("I" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query9 = "SELECT * FROM fieldmazcolleen.query9()";
+          $rows = $data_access_layer->executeQuery($query9);
           foreach ($rows as $row) 
           {
             echo "
@@ -158,8 +158,8 @@
         }
 
          if("J" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query10 = "SELECT * FROM fieldmazcolleen.query10()";
+          $rows = $data_access_layer->executeQuery($query10);
           foreach ($rows as $row) 
           {
             echo "
@@ -167,10 +167,7 @@
             <div class=\"row clearfix\">
             <div class=\"col-md-12 column\">
             <h2> " . $row[1] . "</h2>
-            <p> Food rating: " . $row[5] . "</p>
-            <p> Location: " . $row[3] . "</p>
-            <p> Phone number: " . $row[4] . "</p>
-            <p> Rater: " . $row[2]. "</p>
+            <p> Type: " . $row[0] . "</p>
             </div>
             </div>
             </div>";
@@ -178,8 +175,8 @@
         }
 
          if("K" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query11 = "SELECT * FROM fieldmazcolleen.query11()";
+          $rows = $data_access_layer->executeQuery($query11);
           foreach ($rows as $row) 
           {
             echo "
@@ -198,8 +195,8 @@
         }
 
         if("L" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query12 = "SELECT * FROM fieldmazcolleen.query12()";
+          $rows = $data_access_layer->executeQuery($query12);
           foreach ($rows as $row) 
           {
             echo "
@@ -218,8 +215,8 @@
         }
 
         if("M" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $mostfrequent = "SELECT * FROM fieldmazcolleen.findInfo_Rater_Comment_mostFre()";
+          $rows = $data_access_layer->executeQuery($mostfrequent);
           foreach ($rows as $row) 
           {
             echo "
@@ -238,8 +235,8 @@
         }
 
         if("N" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query14 = "SELECT * FROM fieldmazcolleen.query14()";
+          $rows = $data_access_layer->executeQuery($query14);
           foreach ($rows as $row) 
           {
             echo "
@@ -255,8 +252,8 @@
         }
 
         if("O" == $query) {
-          $ = "SELECT * FROM ()";
-          $rows = $data_access_layer->executeQuery();
+          $query15 = "SELECT * FROM fieldmazcolleen.query15()";
+          $rows = $data_access_layer->executeQuery($query15);
           foreach ($rows as $row) 
           {
             echo "
@@ -265,20 +262,15 @@
             <div class=\"col-md-12 column\">
             <h2> " . $row[0] . "</h2>
             <p> (" . $row[1] . ") </p>
-            <p> Email: " . $row[2] "</p>
-            <p> Restarant Name: " . $row[3] "</p>
-            <p> Overall Restaurant Rating: " . $row[4] "</p>
-            <p> Comments: " . $row[5] "</p>
+            <p> Email: " . $row[2] . "</p>
+            <p> Restarant Name: " . $row[3] ."</p>
+            <p> Overall Restaurant Rating: " . $row[4]. "</p>
+            <p> Comments: " . $row[5]. "</p>
             </div>
             </div>
             </div>";
           }
         }
-
-        rater.name, rater.type, rater.email, restaurant.name, rating.globalrate,rating.comments
-
-
-
 
         ?>
       </div>
