@@ -35,9 +35,9 @@ echo "
           <form class=\"navbar-form navbar-right\" role=\"search\">
             <div class=\"form-group search-bar\">
               <input type=\"text\" class=\"form-control\" placeholder=\"Search Restaurant\">
-            <a href=\"#\" class=\"btn btn-default btn-md\" role=\"button\">
+            <button type=\"submit\" class=\"btn btn-default btn-md\" role=\"button\">
             <span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span>
-            </a>
+            </button>
             </div>
             <a href=\"php/logout.php\" class=\"btn btn-primary btn-md\" role=\"button\">
             Log Out
