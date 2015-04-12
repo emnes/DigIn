@@ -97,7 +97,7 @@ footer
 .restaurant-description #rating{
     font-size: 40px;
 }
-.restaurant-description a{
+.restaurant-description #map{
     float: right;
 }
 

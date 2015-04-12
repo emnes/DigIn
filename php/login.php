@@ -1,4 +1,18 @@
 <?php
+  session_start();
+  $name = "";
+  $userid = "";
+  if(array_key_exists('name', $_SESSION) && array_key_exists('userid', $_SESSION)){
+    echo "THE NAME IS: ".$_SESSION['name'];
+    $name = $_SESSION['name'];
+    $userid = $_SESSION['userid'];
+  }
+  else{
+    echo "INSIDE OF ELSE STATEMENT";
+  }
+?>
+
+<?php
 if (array_key_exists('input-email', $_POST) && array_key_exists('input-pw', $_POST)){
 
     $getEmail = $_POST['input-email'];
@@ -26,7 +40,7 @@ if (array_key_exists('input-email', $_POST) && array_key_exists('input-pw', $_PO
             $_SESSION['userid'] = $userId;
             ?>
             <script>
-            window.location.href = '../index.php';
+            window.location.href = 'temp.php';
             </script>
             <?php
         }
