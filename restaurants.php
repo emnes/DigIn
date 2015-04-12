@@ -64,7 +64,7 @@
             $rows = $data_access_layer->executeQuery($restaurantQuery);
             foreach($rows as $row){
                 // If likeness doesn't show or is 0
-                if($row[8] == 0)
+                if($row[8] == -1)
                   $likeness = "Not yet rated";
                 else
                   $likeness = $row[8]." <span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>";
