@@ -100,7 +100,7 @@ echo
 </div>
 
 <!-- Modal View for Create Menu Item -->
-<div class=\"modal fade\" id=\"signUpModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"logInModal\" aria-hidden=\"true\">
+<div class=\"modal fade\" id=\"createMenuItem\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"logInModal\" aria-hidden=\"true\">
 <div class=\"modal-dialog\">
 <div class=\"modal-content\">
 <div class=\"modal-header\">
