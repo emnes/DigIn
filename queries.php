@@ -24,7 +24,7 @@
   <!-- Begin page content -->
 
   <div class="container-fluid">
-    <div class="row-fluid">
+    <div class="row">
       <div class="col-md-2">
         <div class="panel panel-default">
           <div class="panel-body">

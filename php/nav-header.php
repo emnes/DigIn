@@ -1,6 +1,5 @@
 <?php 
-
-  if(isset($_SESSION['name']) && isset($_SESSION['userid']))
+  if((isset($_SESSION['name'])) && isset($_SESSION['userid']))
   {
     loggedInNav($name);
   } 
