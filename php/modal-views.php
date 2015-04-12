@@ -72,7 +72,7 @@ echo "
 					</div>
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">User Type</label>
-						<select class=\"form-control\" id=\"user-type-selector\">
+						<select name=\"input-type\" class=\"form-control\" id=\"user-type-selector\">
 							<option value=\"critic\">Critic</option>
 							<option value=\"blogger\">Blogger</option>
 							<option value=\"diner\">Diner</option>
@@ -115,7 +115,7 @@ echo "
 					</div>
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Type of Food</label>
-						<select class=\"form-control\" id=\"user-type-selector\">
+						<select name=\"input-type\" class=\"form-control\" id=\"user-type-selector\">
 							<option value=\"beverage\">Beverage</option>
 							<option value=\"food\">Food</option>
 							<option value=\"vegetarian\">Vegetarian</option>
@@ -123,7 +123,7 @@ echo "
 					</div>
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Category</label>
-						<select class=\"form-control\" id=\"user-type-selector\">
+						<select name=\"input-category\" class=\"form-control\" id=\"user-type-selector\">
 							<option value=\"\appetizer\">Appetizers</option>
 							<option value=\"desserts\">Desserts</option>
 							<option value=\"mains\">Mains</option>
@@ -174,7 +174,7 @@ echo "
 				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deletemenuitem.php\" role=\"form\">
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Are you sure you want to delete this item?</label>
-						<select class=\"form-control\" id=\"user-type-selector\">
+						<select name=\"answer\" class=\"form-control\" id=\"user-type-selector\">
 							<option value=\"yes\">Yes</option>
 							<option value=\"no\">No</option>
 						</select>
@@ -249,7 +249,7 @@ echo "
 				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deleterestaurant.php\" role=\"form\">
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Are you sure you want to delete this restaurant?</label>
-						<select class=\"form-control\" id=\"user-type-selector\">
+						<select name=\"name\" class=\"form-control\" id=\"user-type-selector\">
 							<option value=\"yes\">Yes</option>
 							<option value=\"no\">No</option>
 						</select>

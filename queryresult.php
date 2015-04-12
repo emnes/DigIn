@@ -142,8 +142,7 @@
             <div class=\"container\">
             <div class=\"row clearfix\">
             <div class=\"col-md-12 column\">
-            <h2> " . $row[1] . "</h2>
-            <p> Type: " . $row[0] . "</p>
+            <h2> Type: " . $row[0] . "</h2>
             </div>
             </div>
             </div>";
