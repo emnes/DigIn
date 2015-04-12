@@ -35,7 +35,7 @@
       // Store log in email under log in email
       $_SESSION['logInEmail']=$logInEmail;
       // Go to this location
-      header("location: restaurants.php");
+      header("location: index.php");
       exit;
     }
     pg_free_result($result);
