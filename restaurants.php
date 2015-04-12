@@ -15,9 +15,9 @@
 
 
 <body>
-<?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
+<?php include 'php/modal-views.php'; include 'php/nav-header.php';   include 'php/data_access_layer.php';
+  $data_access_layer = new DataAccessLayer();?>
 <!-- Begin page content -->
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
