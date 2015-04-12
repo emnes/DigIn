@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  $name = "";
+  $userid = "";
+  if(array_key_exists('name', $_SESSION) && array_key_exists('userid', $_SESSION)){
+    $name = $_SESSION['name'];
+    $userid = $_SESSION['userid'];
+  }
+?>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,12 +21,13 @@
   <script src="content/js/bootstrap.min.js"></script>
   <title> Home | Dig In </title>
 </head>
-
-
-
 <body>
-<?php include 'php/modal-views.php'; include 'php/nav-header.php';   include 'php/data_access_layer.php';
-  $data_access_layer = new DataAccessLayer();?>
+<?php   
+  include 'php/data_access_layer.php';
+  $data_access_layer = new DataAccessLayer(); 
+  include 'php/modal-views.php'; 
+  include 'php/nav-header.php';
+?>
 <!-- Begin page content -->
 <div class="container-fluid">
   <div class="row-fluid">

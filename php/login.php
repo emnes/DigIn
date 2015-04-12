@@ -1,41 +1,42 @@
 <?php
-   session_start();
+if (array_key_exists('input-email', $_POST) && array_key_exists('input-pw', $_POST)){
 
-if (isset($_POST['email']) && isset($_POST['password'])
-{
-  // if the user has just tried to log in
-  $userid = $_POST['email'];
-  $password = $_POST['password'];
+    $getEmail = $_POST['input-email'];
+    $getPass = $_POST['input-pw'];
 
-  $db_conn = pg_connect('dbname=secret user=secret password=secret');
-  $query = "SELECT * FROM authorized_users WHERE name='$userid' AND password='$password' ";
+    include 'data_access_layer.php';
+    $data_access_layer = new DataAccessLayer();
+    $query = "SELECT * FROM fieldmazcolleen.rater R WHERE R.email = '".$getEmail."'";
+    $result = $data_access_layer->executeQuery($query);
 
-  $result = pg_query($query);
+    $numRows = count($result);
 
-  if (pg_num_rows($result) > 0)
-  {
-    // if they are in the database register the user id
-    $_SESSION['valid_user'] = $userid;
-  }
-
-  pg_close($db_conn);
- }
-
-  if (isset($_SESSION['valid_user']))
-  {
-     main page....cool functionality
-  }
-  else
+    if($numRows != 0)
     {
-       if (isset($userid))
-        {
-          echo 'Could not log you in.<br />';
-        }
-    else
-       {
-         echo 'You are not logged in.<br />';
-        }
+        $res = "SELECT * FROM fieldmazcolleen.rater R WHERE R.email = '".$getEmail."'";
+        $rows = $data_access_layer->executeQuery($res);
+        $row = $rows[0];
 
-    Log in form goes here......
+        $userPass = $row[4];
+        $userName = $row[2];
+        $userId = $row[0];
+
+        if('1234' == $getPass){
+            $_SESSION['name'] = $userName;
+            $_SESSION['userid'] = $userId;
+            ?>
+            <script>
+            window.location.href = '../index.php';
+            </script>
+            <?php
+        }
+        else{
+            echo "<p class = 'error'>".$userPass."The password for that email does not match. Please try again</p>";
+        }
     }
- >?
+    else{
+        echo "<p class 'error'>The email you have entered is not in our system</p>";
+    }
+
+}
+?>
