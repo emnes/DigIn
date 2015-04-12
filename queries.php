@@ -12,35 +12,9 @@
   <script src="content/js/bootstrap.min.js"></script>
   <title> Queries | Dig In </title>
 </head>
-<!-- Deals with Logging in and Storing sessions -->
-<?php
-include 'php/data_access_layer.php';
-$data_access_layer = new DataAccessLayer();
 
-session_start();
-  // Check if login button clicked and login value is in POST
-if(array_key_exists('login',$_POST))
-{
-    // Retrieve email and password
-  $logInEmail=$_POST['logInEmail'];
-  $logInPass=$_POST['logInPass'];
 
-    // Query for user
-  $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
-  $result = $data_access_layer->executeQuery($logInQuery);
-  $result_count = count($result);
-    // If user exists
-  if($row_count>0)
-  {
-      // Store log in email under log in email
-    $_SESSION['logInEmail']=$logInEmail;
-      // Go to this location
-    header("location: restaurants.php");
-    exit;
-  }
-  pg_free_result($result);
-}
-?>
+
 <body>
   <?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
   <!-- Begin page content -->
