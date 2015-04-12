@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <div class="page-header">
         <?php 
         $type = $_GET['type']; 
@@ -42,33 +42,33 @@
         ?>
 
         <button type="button" class="btn btn-success btn-md" role="button" onClick=""><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Menu Item</button>
-
-
+        <h5><div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+               Sort By
+              <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <?php 
+              echo "<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"menuitems.php?type=".$_GET['type']."&amp;sortid=Name\">Name</a></li>
+              <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"menuitems.php?type=".$_GET['type']."&amp;sortid=Price\">Cheapest</a></li>
+              <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"menuitems.php?type=".$_GET['type']."&amp;sortid=RestaurantName\">Restaurant</a></li>";
+              ?>
+              </ul>
+              </div>
+          </h5>
       </div>
       <div class="col-md-10" id="restaurants">
         <?php 
-        
-        if($type=="All"){
-          $raterQuery = "SELECT DISTINCT M.name, M.price, M.description, R.name
-          FROM fieldmazcolleen.menuItem M, fieldmazcolleen.restaurant R WHERE M.restaurantid = R.restaurantid";
-        }
-        else{
-          $raterQuery = "SELECT DISTINCT M.name, M.price, M.description, R.name
-          FROM fieldmazcolleen.menuItem M, fieldmazcolleen.restaurant R WHERE M.type = '".$type."' AND M.restaurantid = R.restaurantid";
-        }
-        $rows = $data_access_layer->executeQuery($raterQuery); 
+          $menuItemQuery = "SELECT * FROM fieldmazcolleen.menuItemsSort('".$_GET['type']."','".$_GET['sortid']."')";
+        $rows = $data_access_layer->executeQuery($menuItemQuery);
 
-        foreach($rows as $row){ 
-          if($row[1]==0)
-            $price = " No information provided";
-          else
-            $price = $row[1];
-
+        foreach($rows as $row)
+        { 
           echo "<div class=\"row\">
           <h2>".$row[0]."</h2>
-          <h5> Price: $".$price."</h5>
+          <h5> Price: $".$row[3]."</h5>
           <h5>".$row[2]."</h5>
-          <h5> From: ".$row[3]."</h5>
+          <h5> From: ".$row[4]."</h5>
           </div>"; 
         } 
         ?>

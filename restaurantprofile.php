@@ -101,6 +101,7 @@
                     <th><a href='restaurant.php?id=9&sort=item'>Item</a></th>
                     <th><a href='restaurant.php?id=9&sort=price'>Price</a></th>
                     <th><a href='restaurant.php?id=9&sort=type'>Type</a></th>
+                    <th>Remove</th>
                   </tr>
                 </thead>
                 <!-- All menu items -->
@@ -113,6 +114,9 @@
                               <td>".$row[0]."</td>
                               <td>".$row[4]."</td>
                               <td>".$row[1]."</td>
+                              <td><button onclick=\"\"  name = \"remove-item\" method  = \"post\"  type=\"edit-item\" class=\"btn btn-danger\" style=\"padding-bottom:5px;padding-top:5px\">
+                                <span class=\"glyphicon glyphicon-remove\"></span>
+                              </button></td>
                               </tr>";
             }
             echo "</tbody></table></div>";
