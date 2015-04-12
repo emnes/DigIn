@@ -31,7 +31,7 @@
         <div class="container">
           <div class="row clearfix">
             <div class="col-md-4 column">
-              <img alt="140x140" src="http://lorempixel.com/140/140/" />
+              <img alt="Field" src="assets/img/field.png" />
               <h2>
                 Field
               </h2>
@@ -40,7 +40,7 @@
               </p>
             </div>
             <div class="col-md-4 column">
-              <img alt="140x140" src="http://lorempixel.com/140/140/" />
+              <img alt="Maz" src="assets/img/maz.png" />
               <h2>
                 Maz
               </h2>
@@ -49,7 +49,7 @@
               </p>
             </div>
             <div class="col-md-4 column">
-              <img alt="140x140" src="http://lorempixel.com/140/140/" />
+              <img alt="Colleen" src="assets/img/colleen.png" />
               <h2>
                 Colleen
               </h2>

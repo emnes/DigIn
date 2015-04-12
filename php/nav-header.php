@@ -18,7 +18,7 @@ echo "
         <ul class=\"nav navbar-nav\">
           <li><a href=\"index.php\">Home</a></li>
           <li><a href=\"restaurants.php?type=All&sortid=mp\">Restaurants</a></li>
-          <li><a href=\"raters.php?type=All\">Raters</a></li>
+          <li><a href=\"raters.php?type=All&sortid=Name\"\">Raters</a></li>
           <li><a href=\"menuitems.php?type=All\">Menu Items</a></li>
           <li><a href=\"queries.php?type=All\">Queries</a></li>
         </ul>

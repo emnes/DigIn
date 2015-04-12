@@ -58,7 +58,7 @@
               </div>
           </h5>
         </div>
-        <div class="container" id="restaurants">
+        <div class="col-md-9" id="restaurants">
           <?php
             $restaurantQuery = "SELECT * FROM fieldmazcolleen.typeRestaurantSort('".$_GET['type']."','".$_GET['sortid']."')";
             $rows = $data_access_layer->executeQuery($restaurantQuery);

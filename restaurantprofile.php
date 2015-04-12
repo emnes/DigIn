@@ -61,30 +61,36 @@
         <?php $locationId = $_GET['locationid']; 
         $ratingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuItems('".$locationId."')";
         $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
-        if(count($rows)>0){
+        if(count($rows)>0)
+        {
             echo "<div class=\"page-header\">
             <h1>Menu</h1>
-            </div>";
+            </div>
+            <div class=\"col-md-6 column\">
+            <h2 class=\"text-info\" style=\"margin-bottom:-5px\">
+            Appetizers
+            </h2>
+              <table class=\"table table-hover\" style=\"margin-top:20px\">
+                <thead>
+                  <tr>
+                    <th><a href='restaurant.php?id=9&sort=item'>Item</a></th>
+                    <th><a href='restaurant.php?id=9&sort=price'>Price</a></th>
+                    <th><a href='restaurant.php?id=9&sort=type'>Type</a></th>
+                  </tr>
+                </thead>
+                <!-- All menu items -->
+                <tbody>";
 
             foreach ($rows as $row) 
             {
-                // If price doesn't show or is 0
-              if($row[4]==0)
-                $price = "Not Indicated";
-              else
-                $price = $row[4];
-
-              echo "
-              <div class=\"row\">
-              <div class=\"col-md-10 column\">
-              <h3>" . $row[0] . "</h3>
-              <p> Type: " . $row[1] . "</p>
-              <p> Category: " . $row[2] . "</p>
-              <p> Price: $" . $price . "</p>
-              <p> " . $row[3] . "</p>
-              </div>
-              </div>";
-            } 
+              echo "  
+                            <tr>
+                              <td>".$row[0]."</td>
+                              <td>".$row[4]."</td>
+                              <td>".$row[1]."</td>
+                              </tr>";
+            }
+            echo "</tbody></table></div>";
           }
         ?>
       </div>
