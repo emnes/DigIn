@@ -100,3 +100,8 @@ footer
 .restaurant-description a{
     float: right;
 }
+
+#user-type-selector {
+    width:80px;
+    margin-left: 115px;
+}
