@@ -10,7 +10,10 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
-  <title> Menu Items | Dig In </title>
+  <title>
+    <?php $type = $_GET['type']; 
+    echo $type." Menu Items | Dig In";
+    ?> </title>
 </head>
 
 <body>
