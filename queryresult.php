@@ -100,7 +100,7 @@
         }
 
         if("G" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -119,7 +119,7 @@
         }
 
         if("H" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -138,7 +138,7 @@
         }
 
         if("I" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -158,7 +158,7 @@
         }
 
          if("J" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -178,7 +178,7 @@
         }
 
          if("K" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -198,7 +198,7 @@
         }
 
         if("L" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -218,7 +218,7 @@
         }
 
         if("M" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -238,7 +238,7 @@
         }
 
         if("N" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {
@@ -255,7 +255,7 @@
         }
 
         if("O" == $query) {
-          $ = "SELECT * FROM fieldmazcolleen.()";
+          $ = "SELECT * FROM ()";
           $rows = $data_access_layer->executeQuery();
           foreach ($rows as $row) 
           {

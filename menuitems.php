@@ -26,7 +26,7 @@ if(array_key_exists('login',$_POST))
   $logInPass=$_POST['logInPass'];
 
     // Query for user
-  $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
+  $logInQuery="SELECT * FROM fieldmazcolleen.rater R WHERE R.email=$2 AND R.password=$3";
   $result = $data_access_layer->executeQuery($logInQuery);
   $result_count = count($result);
     // If user exists

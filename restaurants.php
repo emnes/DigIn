@@ -100,8 +100,8 @@
                 <h5> Address: ".$row[5]."</h5>
                 <h5> Phone: ".$row[4]."</h5>
                 <h5> Opening hours: ".$row[6]." to ".$row[7]."</h5>
-                <h5> Open since: ".$row[2]."</h5>
-                <h5> Manager name: ".$row[3]."</h5>
+                <h5> Open since: ".$row[3]."</h5>
+                <h5> Manager name: ".$row[2]."</h5>
                 </div>"; 
               } 
           ?>

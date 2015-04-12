@@ -25,7 +25,7 @@ if(array_key_exists('login',$_POST))
   $logInPass=$_POST['logInPass'];
 
     // Query for user
-  $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
+  $logInQuery="SELECT * FROM fieldmazcolleen.rater R WHERE R.email=$2 AND R.password=$3";
   $result = $data_access_layer->executeQuery($logInQuery);
   $result_count = count($result);
     // If user exists
@@ -98,10 +98,9 @@ if(array_key_exists('login',$_POST))
         <div class="page-header">
           <h1 align="center">Most Recent Ratings</h1>
         </div>
-        
         <!--3 ratings listed-->
         <?php
-        $mostRecentRatings = "SELECT * FROM mostRecentRatings()";
+        $mostRecentRatings = "SELECT * FROM fieldmazcolleen.mostRecentRatings()";
         $rows = $data_access_layer->executeQuery($mostRecentRatings);
         foreach($rows as $row) 
         {

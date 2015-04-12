@@ -21,6 +21,8 @@ class DataAccessLayer{
 		// Prepare to avoid SQL injection
 		$stmt = pg_prepare($dbconn,"ps",$query);
 		// Executes query.
+		pg_query("SET SEARCH_PATH = \"fieldmazcolleen\"");
+		
 		$result = pg_query($query);
 		// No return from PostgreSQL.
 		if (!$result) 
@@ -44,11 +46,5 @@ class DataAccessLayer{
 		pg_close($dbconn);
 		
 		return $queryResult;
-	}
-
-	public function countRows($result)
-	{
-		
-		return numOfRows;
 	}
 }

@@ -87,19 +87,11 @@
         <div class="col-md-6 column">
           <div class="page-header">
             <h1>Restaurant Ratings</h1>
-           <!--  <?php $userId = $_GET['userid']; 
-            $ratingsOfAUser = "SELECT * FROM ratingsOfAUser('".$userId."')";
-            $rows = $data_access_layer->executeQuery($ratingsOfAUser);
-            {
-              echo "
-              <p> Number of ratings: " . $row[0] . "</p>";
-            }
-            ?> -->
           </div>
 
           <!--Restaurant Ratings of a User-->
           <?php $userId = $_GET['userid']; 
-          $ratingsOfAUser = "SELECT * FROM ratingsOfAUser('".$userId."')";
+          $ratingsOfAUser = "SELECT * FROM fieldmazcolleen.ratingsOfAUser('".$userId."')";
           $rows = $data_access_layer->executeQuery($ratingsOfAUser);
           foreach ($rows as $row) 
           {
@@ -129,7 +121,7 @@
           </div>
           <!--Menu Ratings of a User-->
           <?php $userId = $_GET['userid']; 
-          $menuRatingsOfAUser = "SELECT * FROM menuRatingsOfAUser('".$userId."')";
+          $menuRatingsOfAUser = "SELECT * FROM fieldmazcolleen.menuRatingsOfAUser('".$userId."')";
           $rows = $data_access_layer->executeQuery($menuRatingsOfAUser);
           foreach ($rows as $row) 
           {
