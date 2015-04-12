@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  $name = "";
+  $userid = "";
+  if(array_key_exists('name', $_SESSION) && array_key_exists('userid', $_SESSION)){
+    $name = $_SESSION['name'];
+    $userid = $_SESSION['userid'];
+  }
+?>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,8 +84,14 @@
             <span id=\"rest-attribute\">Open from:</span> " . $row[6] . " to: " . $row[7] . "<br/>
             <span id=\"rest-attribute\">Manager:</span> " . $row[2] . "<br/>
             <span id=\"rest-attribute\">First opened in:</span> " . $row[3] . " <br/>
-            <span id=\"rest-attribute\"><a href=\"".$row[9]."\">Website</a></span> </p>
-          <a id=\"map\" href=\"https://www.google.com/maps/place/".$row[0]." near ".$row[5].", Ottawa\">
+            <span id=\"rest-attribute\">
+              <a target=\"_blank\" class=\"btn btn-default\"href=\"".$row[9]."\">
+                <span class=\"glyphicon glyphicon-globe\" aria-hidden=\"true\"></span> 
+                Website
+              </a>
+              </span> 
+            </p>
+          <a target=\"_blank\" id=\"map\" href=\"https://www.google.com/maps/place/".$row[0]." near ".$row[5].", Ottawa\">
           <img src=\"http://maps.googleapis.com/maps/api/staticmap?center=".$row[5]."&zoom=13&scale=1&size=400x250&maptype=roadmap&format=png&visual_refresh=true\"/>
           </a>
           </div>";

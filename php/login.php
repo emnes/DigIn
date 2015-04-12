@@ -3,12 +3,8 @@
   $name = "";
   $userid = "";
   if(array_key_exists('name', $_SESSION) && array_key_exists('userid', $_SESSION)){
-    echo "THE NAME IS: ".$_SESSION['name'];
     $name = $_SESSION['name'];
     $userid = $_SESSION['userid'];
-  }
-  else{
-    echo "INSIDE OF ELSE STATEMENT";
   }
 ?>
 
@@ -35,17 +31,19 @@ if (array_key_exists('input-email', $_POST) && array_key_exists('input-pw', $_PO
         $userName = $row[2];
         $userId = $row[0];
 
-        if('1234' == $getPass){
+        if(strcmp($userPass, $getPass)){
             $_SESSION['name'] = $userName;
             $_SESSION['userid'] = $userId;
             ?>
             <script>
-            window.location.href = 'temp.php';
+            window.location.href = '../index.php';
             </script>
             <?php
         }
         else{
-            echo "<p class = 'error'>".$userPass."The password for that email does not match. Please try again</p>";
+            echo "<br/> Entered Pass: ". $getPass;
+            echo "<br/> Database Pass: ".$userPass;
+            echo "<p class = 'error'>The password for that email does not match. Please try again</p>";
         }
     }
     else{

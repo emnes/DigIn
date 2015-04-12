@@ -4,14 +4,9 @@
   $name = "";
   $userid = "";
   if(array_key_exists('name', $_SESSION) && array_key_exists('userid', $_SESSION)){
-    echo $_SESSION['name'];
     $name = $_SESSION['name'];
     $userid = $_SESSION['userid'];
   }
-  else{
-    echo "INSIDE OF ELSE STATEMENT";
-  }
-  echo "The name is: ".$_SESSION['name'];
 ?>
 <html>
 <head>
