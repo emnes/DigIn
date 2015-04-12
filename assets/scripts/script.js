@@ -13,11 +13,6 @@ function createMenuItem()
     $('#createMenuItem').modal('show');
 }
 
-function createMenuItem()
-{
-    $('#createMenuItem').modal('show');
-}
-
 function deleteMenuItem()
 {
     $('#deleteMenuItem').modal('show');

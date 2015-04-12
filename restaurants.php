@@ -54,7 +54,7 @@
             $title = $type." Restaurants"; 
             echo "<h2>".$title."<h2>"; 
           ?>
-          <button type="button" class="btn btn-success btn-md" role="button" onClick=""><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Restaurant</button>
+          <button type="button" class="btn btn-success btn-md" role="button" onClick="createRestaurant()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Restaurant</button>
           <h5><div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                Sort By

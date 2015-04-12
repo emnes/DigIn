@@ -172,6 +172,12 @@ echo "
 			</div>
 			<div class=\"modal-body\">
 				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deletemenuitem.php\" role=\"form\">
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"itemid\">Menu Id</label>
+							<input name =\"input-price\" type=\"text\" class=\"form-control\" id=\"input-price\" required/>
+						</div>
+					</div>
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Are you sure you want to delete this item?</label>
 						<select name=\"answer\" class=\"form-control\" id=\"user-type-selector\">
@@ -247,6 +253,10 @@ echo "
 			</div>
 			<div class=\"modal-body\">
 				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deleterestaurant.php\" role=\"form\">
+					<div class=\"form-group-xs\">
+							<label id="itemid" for=\"itemid\">Restaurant Id</label>
+							<input name =\"input-price\" type=\"text\" class=\"form-control\" id=\"input-price\" required/>
+					</div>
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Are you sure you want to delete this restaurant?</label>
 						<select name=\"name\" class=\"form-control\" id=\"user-type-selector\">
