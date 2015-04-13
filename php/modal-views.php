@@ -184,10 +184,12 @@ echo "
 		<div class=\"modal-content\">
 			<div class=\"modal-header\">
 				<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
-				<h4 class=\"modal-title\" id=\"myModalLabel\">Create Menu Item</h4>
+				<h4 class=\"modal-title\" id=\"createfor\">Create Menu Item</h4>
 			</div>
 			<div class=\"modal-body\">
 				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/createmenuitem.php?locid=".$locationId."\" role=\"form\">
+					<div class=\"form-group\" id=\"restIdForm\" style=\"text-align:center\">
+					</div>
 					<div class=\"form-group\">
 							<label for=\"input-id\" class=\"col-sm-2 control-label\">Item ID</label>
 						<div class=\"col-sm-10\">
@@ -230,8 +232,6 @@ echo "
 						<div class=\"col-sm-10\">
 							<input name =\"input-price\" type=\"text\" class=\"form-control\" id=\"input-price\" required autofocus/>
 						</div>
-					</div>
-					<div class=\"form-group\" id=\"restIdForm\" style=\"text-align:center\">
 					</div>
 			</div>
 			<div class=\"modal-footer\" style=\"text-align: center;\">

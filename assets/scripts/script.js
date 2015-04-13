@@ -10,15 +10,15 @@ function createMenuItem(givenRestId, givenRestName)
 {
     //alert(givenRestId);
     // Creates a label
-    var label = document.createElement("label");
-    label.for = "input-rid";
-    label.class = "col-sm-2 control-label";
+    //var label = document.createElement("label");
+    //label.for = "input-rid";
+    //label.class = "col-sm-2 control-label";
     // Restaurant ID: givenid text
-    var text = document.createTextNode("Restaurant ID: " + givenRestName);
+    var text = document.createTextNode(" for " + givenRestName);
     // Adds text to label
-    label.appendChild(text);
+    //label.appendChild(text);
     // Adds label to form
-    document.getElementById("restIdForm").appendChild(label);
+    document.getElementById("createfor").appendChild(text);
     var input = document.createElement("input");
     input.type = "hidden";
     input.name = "input-rid";
