@@ -231,11 +231,8 @@ echo "
 							<input name =\"input-price\" type=\"text\" class=\"form-control\" id=\"input-price\" required autofocus/>
 						</div>
 					</div>
-					<div class=\"form-group\">
-							<label for=\"input-rid\" class=\"col-sm-2 control-label\">Restaurant ID</label>
-						<div class=\"col-sm-10\">
-							<input name =\"input-rid\" type=\"text\" class=\"form-control\" id=\"input-rid\" required autofocus/>
-						</div>
+					<div class=\"form-group\" id=\"restIdForm\">
+							<label for=\"input-rid\" class=\"col-sm-2 control-label\">Restaurant ID: </label>
 					</div>
 			</div>
 			<div class=\"modal-footer\" style=\"text-align: center;\">
@@ -256,7 +253,7 @@ echo "
 				<h4 class=\"modal-title\" id=\"myModalLabel\" style=\"text-align: center;\">Delete Item</h4>
 			</div>
 			<div class=\"modal-body\" style=\"text-align: center;\">
-				<form class=\"form-horizontal\" id=\"menu-item-delete\" name=\"formID\" method=\"post\" action=\"php/deletemenuitem.php\" role=\"form\">
+				<form class=\"form-horizontal\" id=\"menu-item-delete\" name=\"formID\" method=\"post\" action=\"php/d-menuitem.php?locid=".$locationId."\" role=\"form\">
 						<div class=\"form-group\">
 							Are you sure you want to delete this item?
 						</div>
@@ -279,7 +276,7 @@ echo "
 				<h4 class=\"modal-title\" id=\"myModalLabel\" style=\"text-align: center;\">Delete Restaurant</h4>
 			</div>
 			<div class=\"modal-body\" style=\"text-align: center;\">
-				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deletemenuitem.php\" role=\"form\">
+				<form class=\"form-horizontal\" id=\"restaurant-delete\" name=\"formID\" method=\"post\" action=\"php/d-restaurant.php\" role=\"form\">
 						<div class=\"form-group\">
 							Are you sure you want to delete this restaurant?
 						</div>

@@ -17,8 +17,7 @@
       // Click ok takes user back to index.php
       $query = "SELECT fieldmazcolleen.rmvItem('".$toremove."')";
       $data_access_layer->executeQuery($query);
-      session_destroy();
       echo "<p>Removed: ".$toremove."</p>";
-      header("Location: ../index.php");
+      header("Location: ../restaurantprofile.php?locationid=".$_GET['locid']."&sortid=Name");
       die();
 ?>

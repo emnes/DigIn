@@ -38,6 +38,7 @@
     <div class="container">
       <div class="row">
           <?php
+          $restaurantId = $row[10];
         // If likeness doesn't show or is 0
           if($row[8]==-1)
             $likeness = "Not yet rated";
@@ -47,7 +48,7 @@
           echo "
           <div class=\"page-header\" align=\"center\">
           <h2>".$row[0]."</h2>
-          <button type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\" onClick=\"deleteRestaurant()\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Restaurant</button>
+          <button type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\" onClick=\"deleteRestaurant('".$restaurantId."')\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Restaurant</button>
           </div>
           <div class=\"restaurant-description\">
           <p>  <span id=\"rating\">".$likeness."</span> </br>
@@ -99,13 +100,13 @@
             { // DEBUG
               echo "  
                             <tr>
-                              <td>".$row[0]."</td>
                               <td>".$row[1]."</td>
                               <td>".$row[2]."</td>
-                              <td>$".$row[3]."</td>
+                              <td>".$row[3]."</td>
+                              <td>$".$row[4]."</td>
                               <td>
 
-                              <button onclick=\"deleteMenuItem()\"  name = \"remove-item\" method= \"post\"  type=\"edit-item\" class=\"btn btn-danger\" style=\"padding-bottom:5px;padding-top:5px\">
+                              <button onClick=\"deleteMenuItem('".$row[0]."')\" name = \"remove-item\" method= \"post\" type=\"edit-item\" class=\"btn btn-danger\" style=\"padding-bottom:5px;padding-top:5px\">
                                 <span class=\"glyphicon glyphicon-remove\"></span>
                               </button></td>
                               </tr>";
@@ -114,10 +115,11 @@
           }
         ?>
       </div>
-      <button type="button" class="btn btn-success btn-md" role="button" onClick="createMenuItem()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Menu Item</button>
-      <div class="row">
         <!--Menu Ratings-->
-        <?php $locationId = $_GET['locationid']; 
+        <?php 
+        echo "<button type=\"button\" class=\"btn btn-success btn-md\" role=\"button\" onClick=\"createMenuItem('".$restaurantId."')\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> Create Menu Item</button>
+      <div class=\"row\">";
+        $locationId = $_GET['locationid']; 
         $menuRatingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuRatingsOfARestaurant('".$locationId."')";
         $rows = $data_access_layer->executeQuery($menuRatingsOfARestaurant);
         if(count($rows)>0){
