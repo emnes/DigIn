@@ -78,8 +78,11 @@
         $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
         if(count($rows)>0)
         {
+            
+
             echo "<div class=\"page-header\">
             <h1>Menu</h1>
+            <button type=\"button\" class=\"btn btn-success btn-md\" role=\"button\" onClick=\"createMenuItem()\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> Create Menu Item</button>
             </div>
             <div class=\"col-md-6 column\">
               <table class=\"table table-hover\">

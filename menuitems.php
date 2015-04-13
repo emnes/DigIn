@@ -52,8 +52,6 @@
         $title = $type." Menu Items"; 
         echo "<h2>".$title."<h2>"; 
         ?>
-
-        <button type="button" class="btn btn-success btn-md" role="button" onClick="createMenuItem()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create Menu Item</button>
         <h5><div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                Sort By

@@ -30,8 +30,6 @@
     ?> </title>
   </head>
   
-
-  
   <body>
     <?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
     <!-- Begin page content -->
