@@ -123,7 +123,7 @@ echo "
 						<div class=\"form-group\">
 								<label for=\"input-url\" class=\"col-sm-2 control-label\">Website</label>
 							<div class=\"col-sm-10\">
-							<input name =\"input-url\" type=\"url\" class=\"form-control\" id=\"input-url\" required autofocus/>
+							<input name =\"input-url\" type=\"url\" class=\"form-control\" id=\"input-url\"/>
 							</div>
 					</div>
 						<div class=\"form-group\">
