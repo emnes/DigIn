@@ -11,7 +11,7 @@
 <?php 
 	include 'data_access_layer.php';
     $data_access_layer = new DataAccessLayer();	
-    $toremove = $_GET['remid'];
+    $toremove = $_POST['userid'];
     $removedStr=preg_replace('/\s+/', '', $userid);
     if($toremove == $removedStr)
     {

@@ -57,7 +57,17 @@ function deleteRestaurant(givenRestaurantId)
     input.value = givenRestaurantId;
     document.getElementById("restaurant-delete").appendChild(input);
 }
-
+function deleteRater(givenRaterId)
+{
+    //alert(givenRaterId);
+    $('#deleteRater').modal('show');
+    var input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "userid";
+    input.id = "userid";
+    input.value = givenRaterId;
+    document.getElementById("rater-delete").appendChild(input);
+}
 $(document).ready(function () {
   $('.dropdown-toggle').dropdown();
 });

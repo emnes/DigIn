@@ -287,6 +287,28 @@ echo "
 			</div>
 		</div>
 	</div>
+</div>
+<!-- Modal View for Deleting Rater -->
+<div class=\"modal fade\" id=\"deleteRater\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"deleteRater\" aria-hidden=\"true\">
+	<div class=\"modal-dialog\">
+		<div class=\"modal-content\">
+			<div class=\"modal-header\">
+				<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
+				<h4 class=\"modal-title\" id=\"myModalLabel\" style=\"text-align: center;\">Delete Rater</h4>
+			</div>
+			<div class=\"modal-body\" style=\"text-align: center;\">
+				<form class=\"form-horizontal\" id=\"rater-delete\" name=\"formID\" method=\"post\" action=\"php/d-rater.php\" role=\"form\">
+						<div class=\"form-group\">
+							Are you sure you want to delete this rater?
+						</div>
+			<div class=\"modal-footer\" style=\"text-align: center;\">
+				<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+				<button type=\"submit\" class=\"btn btn-danger\">Yes</button>
+			</div>
+			</form>
+			</div>
+		</div>
+	</div>
 </div>";
 ?>
 

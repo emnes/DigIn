@@ -209,8 +209,8 @@
             <div class=\"col-md-12 column\">
             <h2> " . $row[0] . "</h2>
             <p> Reputation: " . $row[1] . "</p>
-            <p> Restaurant: " . $row[3] . "</p>
-            <p> Price: " . $row[4]. "</p>
+            <p> Menu Item: " . $row[3] . "</p>
+            <p> Price: $" . $row[4]. "</p>
             <p> " . $row[2]. "</p>
             </div>
             </div>

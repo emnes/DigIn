@@ -27,7 +27,8 @@
     $raterInfo = "SELECT * FROM fieldmazcolleen.raterInfo('".$userIDGiven."')";
     $rows = $data_access_layer->executeQuery($raterInfo);
     $row = $rows[0];
-    if(count($rows) === 0){
+    if(count($rows) === 0)
+    {
       header("Location: ../index.php");
       die();
     }
@@ -53,7 +54,7 @@
           if($removedStr === $userIDGiven)
           {
                 echo "<h2>My Profile</h2>
-                <a href=\"php/d-rater.php?remid=".$removedStr."\" type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Profile</a>";
+                <button type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\" onClick=\"deleteRater('".$removedStr."')\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Profile</button>";
           }
           else {
             echo "<h2>".$row[0]."</h2>";
