@@ -9,9 +9,14 @@
   include 'data_access_layer.php'; 
   $data_access_layer = new DataAccessLayer();
 
-  echo $_POST['input-id'].$_POST['input-name'].$_POST['input-type'].$_POST['input-category'].$_POST['input-d'].$_POST['input-price'].$_POST['input-rid'];
+  $query = "SELECT fieldmazcolleen.addRestarurant('". $_POST['input-id']."', '". $_POST['input-name']."', '".$_POST['input-type']."', '".$_POST['input-url']."')";
+  $data_access_layer->executeQuery($query);
 
-  $query = "SELECT fieldmazcolleen.addItems('". $_POST['input-id']."', '". $_POST['input-name']."', '".$_POST['input-type']."', '".$_POST['input-category']."','".$_POST['input-d']."','".$_POST['input-price']."', '".$_POST['input-rid']. "')";
-  $data_access_layer->executeFunction($query);
+  $location = "SELECT fieldmazcolleen.addBranch('". $_POST['input-id']."', '". $_POST['input-lid']."', '". $_POST['input-address']."', '". $_POST['input-man']."',
+'". $_POST['input-pn']."', '". $_POST['input-open']."', '". $_POST['input-close']."', '". $_POST['input-date']."')";
+  $data_access_layer->executeQuery($location);
 
+
+  header("Location: ../restaurants.php?type=".$_GET['type']."&sortid=mp");
+  die();
 ?>

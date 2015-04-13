@@ -1,4 +1,11 @@
-<?php 
+<?php if(isset($_GET['locationId']) == false)
+		{
+			$locationId = "";
+		}
+		if(isset($_GET['type']) == false)
+		{
+			$type = "";
+		}
 echo "
 
 <!-- Modal View for Log In -->
@@ -80,6 +87,94 @@ echo "
 					</div>
 					<div class=\"text-center\">
 						<button type=\"submit\" class=\"btn btn-primary\"><strong>Sign Up!</strong></button>
+					</div>
+				</form>
+			</div>
+			<div class=\"modal-footer\">
+				<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal View to Create Restaurant -->
+<div class=\"modal fade\" id=\"createRestaurant\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"createRestaurant\" aria-hidden=\"true\">
+	<div class=\"modal-dialog\">
+		<div class=\"modal-content\">
+			<div class=\"modal-header\">
+				<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
+				<h4 class=\"modal-title\" id=\"myModalLabel\">Create Restaurant</h4>
+			</div>
+			<div class=\"modal-body\">
+				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/createrestaurant.php?type=".$type."\" role=\"form\">
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-id\">Restaurant Id</label>
+							<input name =\"input-id\" type=\"text\" class=\"form-control\" id=\"input-id\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-name\">Restaurant Name</label>
+							<input name =\"input-name\" type=\"text\" class=\"form-control\" id=\"input-name\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-type\">Restaurant Type</label>
+							<input name =\"input-type\" type=\"text\" class=\"form-control\" id=\"input-type\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-url\">Restaurant URL</label>
+							<input name =\"input-url\" type=\"text\" class=\"form-control\" id=\"input-url\" required autofocus/>
+						</div>
+					</div>
+						<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-lid\">Location Id</label>
+							<input name =\"input-lid\" type=\"text\" class=\"form-control\" id=\"input-lid\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-address\">Address</label>
+							<input name =\"input-address\" type=\"text\" class=\"form-control\" id=\"input-address\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-man\">Manager Name</label>
+							<input name =\"input-man\" type=\"text\" class=\"form-control\" id=\"input-man\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-pn\">Phone number </label>
+							<input name =\"input-pn\" type=\"text\" class=\"form-control\" id=\"input-pn\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-open\">Hour Open</label>
+							<input name =\"input-open\" type=\"text\" class=\"form-control\" id=\"input-open\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-close\">Hour Close</label>
+							<input name =\"input-close\" type=\"text\" class=\"form-control\" id=\"input-close\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<label for=\"input-date\">Date of Opening</label>
+							<input name =\"input-date\" type=\"date\" class=\"form-control\" id=\"input-date\" required autofocus/>
+						</div>
+					</div>
+					<div class=\"text-center\">
+						<button type=\"submit\" class=\"btn btn-primary\"><strong>Create!</strong></button>
 					</div>
 				</form>
 			</div>
@@ -184,52 +279,6 @@ echo "
 	</div>
 </div>
 
-<!-- Modal View to Create Restaurant Item -->
-<div class=\"modal fade\" id=\"createRestaurant\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"createRestaurant\" aria-hidden=\"true\">
-	<div class=\"modal-dialog\">
-		<div class=\"modal-content\">
-			<div class=\"modal-header\">
-				<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>
-				<h4 class=\"modal-title\" id=\"myModalLabel\">Create Restaurant</h4>
-			</div>
-			<div class=\"modal-body\">
-				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/createrestaurant.php\" role=\"form\">
-					<div class=\"row\">
-						<div class=\"form-group-xs\">
-							<label for=\"input-id\">Restaurant Id</label>
-							<input name =\"input-name\" type=\"text\" class=\"form-control\" id=\"input-id\" required autofocus/>
-						</div>
-					</div>
-					<div class=\"row\">
-						<div class=\"form-group-xs\">
-							<label for=\"input-name\">Restaurant Name</label>
-							<input name =\"input-name\" type=\"text\" class=\"form-control\" id=\"input-name\" required autofocus/>
-						</div>
-					</div>
-					<div class=\"row\">
-						<div class=\"form-group-xs\">
-							<label for=\"input-type\">Restaurant Type</label>
-							<input name =\"input-type\" type=\"text\" class=\"form-control\" id=\"input-type\" required autofocus/>
-						</div>
-					</div>
-					<div class=\"row\">
-						<div class=\"form-group-xs\">
-							<label for=\"input-url\">Restaurant URL</label>
-							<input name =\"input-url\" type=\"text\" class=\"form-control\" id=\"input-url\" required autofocus/>
-						</div>
-					</div>
-					<div class=\"text-center\">
-						<button type=\"submit\" class=\"btn btn-primary\"><strong>Create!</strong></button>
-					</div>
-				</form>
-			</div>
-			<div class=\"modal-footer\">
-				<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
-			</div>
-		</div>
-	</div>
-</div>
-
 <!-- Modal View for Deleting Restaurant -->
 <div class=\"modal fade\" id=\"deleteRestaurant\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"deleteRestaurant\" aria-hidden=\"true\">
 	<div class=\"modal-dialog\">
@@ -252,5 +301,5 @@ echo "
 		</div>
 	</div>
 </div>"
-
 ?>
+
