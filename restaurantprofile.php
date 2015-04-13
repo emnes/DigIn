@@ -103,7 +103,8 @@
                               <td>".$row[1]."</td>
                               <td>".$row[2]."</td>
                               <td>$".$row[3]."</td>
-                              <td><button onclick=\"deleteMenuItem()\"  name = \"remove-item\" method= \"post\"  type=\"edit-item\" class=\"btn btn-danger\" style=\"padding-bottom:5px;padding-top:5px\">
+                              <td>
+                              <button onclick=\"deleteMenuItem()\"  name = \"remove-item\" method= \"post\"  type=\"edit-item\" class=\"btn btn-danger\" style=\"padding-bottom:5px;padding-top:5px\">
                                 <span class=\"glyphicon glyphicon-remove\"></span>
                               </button></td>
                               </tr>";
