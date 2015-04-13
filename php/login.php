@@ -30,8 +30,8 @@ if (array_key_exists('input-email', $_POST) && array_key_exists('input-pw', $_PO
         $userPass = $row[4];
         $userName = $row[2];
         $userId = $row[0];
-
-        if(strcmp($userPass, $getPass)){
+        if($userPass === $getPass)
+        {
             $_SESSION['name'] = $userName;
             $_SESSION['userid'] = $userId;
             ?>
@@ -40,14 +40,13 @@ if (array_key_exists('input-email', $_POST) && array_key_exists('input-pw', $_PO
             </script>
             <?php
         }
-        else{
-            echo "<br/> Entered Pass: ". $getPass;
-            echo "<br/> Database Pass: ".$userPass;
-            echo "<p class = 'error'>The password for that email does not match. Please try again</p>";
+        else
+        {
+            echo "<p class = \"error\">The password for that email does not match. Please try again</p>";
         }
     }
     else{
-        echo "<p class 'error'>The email you have entered is not in our system</p>";
+        echo "<p class = \"error\">The email you have entered is not in our system</p>";
     }
 
 }

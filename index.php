@@ -30,16 +30,11 @@
 ?>
 <!-- Begin page content -->
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10">
-      <div class="container" align="center">
-       
         <!-- About us-->
         <div class="page-header">
           <h1>About</h1>
         </div>
-        <div class="container">
-          <div class="row clearfix">
+          <div class="row" align="center">
             <div class="col-md-4 column">
               <img alt="Field" src="assets/img/field.png" />
               <h2>
@@ -68,17 +63,8 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span10">
-      <div class="container">
+  
+      <div class="row">
        
         <!--Most recent comments -->
         <div class="page-header">
@@ -107,8 +93,5 @@
         ?>
 
       </div>
-    </div>
-  </div>
-</div>
   </body>
 </html>

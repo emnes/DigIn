@@ -43,7 +43,7 @@
               else
                 $likeness = $row[8]." <span class=\"glyphicon glyphicon-star\" aria-hidden=\"true\"></span>";
               echo "<div class=\"row\">
-              <a href=\"restaurantprofile.php?locationid=".$row[0]."\">".$row[1]."</a>&nbsp;&nbsp;<br/><h3>".$likeness."</h3>
+              <a href=\"restaurantprofile.php?locationid=".$row[0]."&sortid=Name\">".$row[1]."</a>&nbsp;&nbsp;<br/><h3>".$likeness."</h3>
               <h5> Address: ".$row[5]."</h5>
               <h5> Phone: ".$row[4]."</h5>
               <h5> Opening hours: ".$row[6]." to ".$row[7]."</h5>

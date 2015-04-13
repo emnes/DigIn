@@ -27,23 +27,23 @@ echo "
         <ul class=\"nav navbar-nav\">
           <li><a href=\"index.php\">Home</a></li>
           <li><a href=\"restaurants.php?type=All&sortid=mp\">Restaurants</a></li>
-          <li><a href=\"raters.php?type=All\">Raters</a></li>
-          <li><a href=\"menuitems.php?type=All\">Menu Items</a></li>
+          <li><a href=\"raters.php?type=All&sortid=Name\"\">Raters</a></li>
+          <li><a href=\"menuitems.php?type=All&amp;sortid=Name\">Menu Items</a></li>
           <li><a href=\"queries.php?type=All\">Queries</a></li>
         </ul>
-          <form class=\"navbar-form navbar-right\" role=\"search\">
-            <div class=\"form-group search-bar\">
-              <input type=\"text\" class=\"form-control\" placeholder=\"Search Restaurant\">
-            <button type=\"submit\" class=\"btn btn-default btn-md\" role=\"button\">
-            <span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span>
-            </button>
-            </div>
+        <form class=\"navbar-form navbar-right\" method=\"post\" action=\"searchresults.php\" role=\"search\">
+          <div class=\"form-group search-bar\">
+            <input type=\"text\" name=\"keyword\" class=\"form-control\" placeholder=\"Search Restaurant\">
+          <button type=\"submit\" class=\"btn btn-default btn-md\" role=\"button\">
+          <span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span>
+          </button>
+          </div>
             <a href=\"php/logout.php\" class=\"btn btn-primary btn-md\" role=\"button\">
             Log Out
             </a>
-            <button type=\"button\" class=\"btn btn-success btn-md\" role=\"button\" onClick=\"signUp()\">"
+            <a href=\"raterprofile.php?userid=".$_SESSION['userid']."\" class=\"btn btn-success btn-md\" role=\"button\">"
             .$name.
-            "</button>
+            "</a>
           </form>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

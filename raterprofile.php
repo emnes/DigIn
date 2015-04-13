@@ -19,19 +19,17 @@
   <script src="assets/scripts/script.js"></script>
   <script src="content/js/jquery.min.js"></script>
   <script src="content/js/bootstrap.min.js"></script>
+
   <?php include 'php/data_access_layer.php';
   $data_access_layer = new DataAccessLayer();?>
   <title>
-    <?php $userId = $_GET['userid']; 
-    $raterInfo = "SELECT * FROM fieldmazcolleen.raterInfo('".$userId."')";
+    <?php $userIDGiven = $_GET['userid']; 
+    $raterInfo = "SELECT * FROM fieldmazcolleen.raterInfo('".$userIDGiven."')";
     $rows = $data_access_layer->executeQuery($raterInfo);
     $row = $rows[0];
     echo $row[0]." | Dig In";
     ?> </title>
   </head>
-  
-
-  
   <body>
     <?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
     <!-- Begin page content -->
@@ -40,15 +38,23 @@
     <div class="container">
       <div class="row">
           <?php
-
           if($row[3]==0)
             $reputation = "Not Yet Reputable";
           else
             $reputation = $row[3];
           echo "
-          <div class=\"page-header\" align=\"center\">
-          <h1>" . $row[0] . "</h1>
-          </div>
+          <div class=\"page-header\" align=\"center\">";
+          // remove whitespace and compare
+          $removedStr=preg_replace('/\s+/', '', $userid);
+          if($removedStr === $userIDGiven)
+          {
+                echo "<h2>My Profile</h2>
+                <a href=\"php/d-rater.php?remid=".$removedStr."\" type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Profile</a>";
+          }
+          else {
+            echo "<h2>".$row[0]."</h2>";
+          }
+          echo "</div>
           <div class=\"restaurant-description\"><p>
           <span id=\"rest-attribute\">Name: </span>" . $row[0] . "</br>
           <span id=\"rest-attribute\">Member since: </span>" . $row[1] . "</br>
@@ -59,8 +65,8 @@
         </div>
         <div class="row">
           <!--Menu Ratings of a User-->
-          <?php $userId = $_GET['userid']; 
-          $menuRatingsOfAUser = "SELECT * FROM fieldmazcolleen.menuRatingsOfAUser('".$userId."')";
+          <?php
+          $menuRatingsOfAUser = "SELECT * FROM fieldmazcolleen.menuRatingsOfAUser('".$userIDGiven."')";
           $rows = $data_access_layer->executeQuery($menuRatingsOfAUser);
           if(count($rows)>0){
             echo "<div class=\"page-header\">
@@ -83,8 +89,8 @@
         </div>
         <div class="row">
             <!--Restaurant Ratings of a User-->
-            <?php $userId = $_GET['userid']; 
-            $ratingsOfAUser = "SELECT * FROM fieldmazcolleen.ratingsOfAUser('".$userId."')";
+            <?php
+            $ratingsOfAUser = "SELECT * FROM fieldmazcolleen.ratingsOfAUser('".$userIDGiven."')";
             $rows = $data_access_layer->executeQuery($ratingsOfAUser);
             if(count($rows)>0){
               echo "<div class=\"page-header\">
