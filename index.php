@@ -35,17 +35,17 @@
           <h1>About</h1>
         </div>
           <div class="row" align="center">
-            <div class="col-md-4 column">
-              <img alt="Field" src="assets/img/field.png" />
+            <div class="col-md-2 col-md-offset-3" style="margin-right: 20px;">
+              <img alt="Field" src="assets/img/field.png" style="width: 180px; height: 160px;"/>
               <h2>
                 Field
               </h2>
               <p>
-                Database Guro
+                Database Guru
               </p>
             </div>
-            <div class="col-md-4 column">
-              <img alt="Maz" src="assets/img/maz.png" />
+            <div class="col-md-2" style=" margin-right: 20px;">
+              <img alt="Maz" src="assets/img/maz.jpg" style=" width: 180px; height: 160px;"/>
               <h2>
                 Maz
               </h2>
@@ -53,8 +53,8 @@
                 Webmaster
               </p>
             </div>
-            <div class="col-md-4 column">
-              <img alt="Colleen" src="assets/img/colleen.png" />
+            <div class="col-md-2">
+              <img alt="Colleen" src="assets/img/colleen.jpg" style=" width: 180px; height: 160px;"/>
               <h2>
                 Colleen
               </h2>
@@ -62,7 +62,7 @@
                King
               </p>
             </div>
-          </div>
+        </div>
   
       <div class="row">
        
