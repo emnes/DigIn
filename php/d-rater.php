@@ -21,7 +21,7 @@
     	$data_access_layer->executeQuery($query);
     	session_destroy();
     	echo "<p>Removed: ".$toremove."</p>";
-    	header("Location: index.php");
+    	header("Location: ../index.php");
     	die();
     }
     else{

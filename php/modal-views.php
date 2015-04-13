@@ -23,15 +23,12 @@ echo "
 							<input name =\"input-pw\" type=\"password\" class=\"form-control\" id=\"input-pw\" required/>
 						</div>
 					</div>
-					<div class=\"text-center\">
-						<button type=\"submit\" class=\"btn btn-primary\"><strong>Login!</strong></button>
-					</div>
-				</form>
-
 			</div>
 			<div class=\"modal-footer\">
 				<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+				<button type=\"submit\" class=\"btn btn-primary\">Log In</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -55,7 +52,7 @@ echo "
 					<div class=\"row\">
 						<div class=\"form-group-xs\">
 							<label for=\"input-un\">Username</label>
-							<input name =\"input-email\" type=\"text\" class=\"form-control\" id=\"input-un\" required autofocus/>
+							<input name =\"input-un\" type=\"text\" class=\"form-control\" id=\"input-un\" required autofocus/>
 						</div>
 					</div>
 					<div class=\"row\">
@@ -78,14 +75,12 @@ echo "
 							<option value=\"Diner\">Diner</option>
 						</select>
 					</div>
-					<div class=\"text-center\">
-						<button type=\"submit\" class=\"btn btn-primary\"><strong>Sign Up!</strong></button>
-					</div>
-				</form>
 			</div>
 			<div class=\"modal-footer\">
 				<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+				<button type=\"submit\" class=\"btn btn-primary\">Sign Up</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>

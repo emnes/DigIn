@@ -27,6 +27,10 @@
     $raterInfo = "SELECT * FROM fieldmazcolleen.raterInfo('".$userIDGiven."')";
     $rows = $data_access_layer->executeQuery($raterInfo);
     $row = $rows[0];
+    if(count($rows) === 0){
+      header("Location: ../index.php");
+      die();
+    }
     echo $row[0]." | Dig In";
     ?> </title>
   </head>

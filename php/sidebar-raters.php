@@ -1,6 +1,6 @@
 <?php
 
-$typeQuery = "SELECT DISTINCT R.type FROM fieldmazcolleen.rater R";
+$typeQuery = "SELECT DISTINCT type FROM fieldmazcolleen.rater WHERE name != 'DELETED'";
 
 $rows = $data_access_layer->executeQuery($typeQuery);
 if("All" == $_GET['type'])

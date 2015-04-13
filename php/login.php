@@ -50,4 +50,7 @@ if (array_key_exists('input-email', $_POST) && array_key_exists('input-pw', $_PO
     }
 
 }
+else{
+    echo "nope";
+}
 ?>
