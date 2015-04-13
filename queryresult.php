@@ -23,8 +23,8 @@
   $data_access_layer = new DataAccessLayer();?>
   <title>
     <?php 
-    $query = $_GET['type']; 
-    echo $query." | Dig In";
+    $type = $_GET['type']; 
+    echo $type." | Dig In";
     ?> </title>
   </head>
   
@@ -42,7 +42,7 @@
           echo "
           <div class=\"container\" align=\"left\">
           <div class=\"page-header\" align=\"left\">
-          <h1>" . $query . "</h1>
+          <h1>" . $type . "</h1>
           </div>
           <div class=\"container\">
           <div class=\"row clearfix\">
@@ -61,7 +61,7 @@
       <div class="row-fluid">
 
         <?php 
-        if("E" == $query) {
+        if("E" == $type) {
           $getAvgPrice = "SELECT * FROM fieldmazcolleen.getAvgPrice()";
           $rows = $data_access_layer->executeQuery($getAvgPrice);
           foreach ($rows as $row) 
@@ -84,7 +84,7 @@
           }
         }
 
-        if("G" == $query) {
+        if("G" == $type) {
           $query7 = "SELECT * FROM fieldmazcolleen.query7()";
           $rows = $data_access_layer->executeQuery($query7);
           foreach ($rows as $row) 
@@ -103,7 +103,7 @@
           }
         }
 
-        if("H" == $query) {
+        if("H" == $type) {
           $query8 = "SELECT * FROM fieldmazcolleen.query8()";
           $rows = $data_access_layer->executeQuery($query8);
           foreach ($rows as $row) 
@@ -122,7 +122,7 @@
           }
         }
 
-        if("I" == $query) {
+        if("I" == $type) {
           $query9 = "SELECT * FROM fieldmazcolleen.query9()";
           $rows = $data_access_layer->executeQuery($query9);
           foreach ($rows as $row) 
@@ -142,7 +142,7 @@
           }
         }
 
-         if("J" == $query) {
+         if("J" == $type) {
           $query10 = "SELECT * FROM fieldmazcolleen.query10()";
           $rows = $data_access_layer->executeQuery($query10);
           foreach ($rows as $row) 
@@ -158,7 +158,7 @@
           }
         }
 
-         if("K" == $query) {
+         if("K" == $type) {
           $query11 = "SELECT * FROM fieldmazcolleen.query11()";
           $rows = $data_access_layer->executeQuery($query11);
           foreach ($rows as $row) 
@@ -178,7 +178,7 @@
           }
         }
 
-        if("L" == $query) {
+        if("L" == $type) {
           $query12 = "SELECT * FROM fieldmazcolleen.query12()";
           $rows = $data_access_layer->executeQuery($query12);
           foreach ($rows as $row) 
@@ -198,7 +198,7 @@
           }
         }
 
-        if("M" == $query) {
+        if("M" == $type) {
           $mostfrequent = "SELECT * FROM fieldmazcolleen.findInfo_Rater_Comment_mostFre()";
           $rows = $data_access_layer->executeQuery($mostfrequent);
           foreach ($rows as $row) 
@@ -218,7 +218,7 @@
           }
         }
 
-        if("N" == $query) {
+        if("N" == $type) {
           $query14 = "SELECT * FROM fieldmazcolleen.query14()";
           $rows = $data_access_layer->executeQuery($query14);
           foreach ($rows as $row) 
@@ -235,7 +235,7 @@
           }
         }
 
-        if("O" == $query) {
+        if("O" == $type) {
           $query15 = "SELECT * FROM fieldmazcolleen.query15()";
           $rows = $data_access_layer->executeQuery($query15);
           foreach ($rows as $row) 
