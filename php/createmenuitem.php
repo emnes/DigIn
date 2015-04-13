@@ -9,9 +9,11 @@
   include 'data_access_layer.php'; 
   $data_access_layer = new DataAccessLayer();
 
-  echo $_POST['input-id'].$_POST['input-name'].$_POST['input-type'].$_POST['input-category'].$_POST['input-d'].$_POST['input-price'].$_POST['input-rid'];
-
   $query = " SELECT fieldmazcolleen.addItems('". $_POST['input-id']."', '". $_POST['input-name']."', '".$_POST['input-type']."', '".$_POST['input-category']."','".$_POST['input-d']."','".$_POST['input-price']."', '".$_POST['input-rid']."')";
   $data_access_layer->executeQuery($query);
 
+  header("Location: ../restaurantprofile.php?locationid=".$_GET['locid']."&sortid=Name");
+  die();
 ?>
+
+

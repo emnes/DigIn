@@ -99,7 +99,7 @@ echo "
 				<h4 class=\"modal-title\" id=\"myModalLabel\">Create Menu Item</h4>
 			</div>
 			<div class=\"modal-body\">
-				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/createmenuitem.php\" role=\"form\">
+				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/createmenuitem.php?locid=".$locationId."\" role=\"form\">
 					<div class=\"row\">
 						<div class=\"form-group-xs\">
 							<label for=\"input-id\">Item Id</label>
@@ -173,6 +173,7 @@ echo "
 						<div class=\"row\">
 						<div class=\"form-group-xs\">
 							<h3>Are you sure you want to delete this item?</h3>
+							<input type=\"submit\" value=\"
 							<button type=\"submit\" class=\"btn btn-primary\"><strong>Yes!</strong></button>
 							<button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">No</button>
 						</div>
