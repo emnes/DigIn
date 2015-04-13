@@ -231,8 +231,7 @@ echo "
 							<input name =\"input-price\" type=\"text\" class=\"form-control\" id=\"input-price\" required autofocus/>
 						</div>
 					</div>
-					<div class=\"form-group\" id=\"restIdForm\">
-							<label for=\"input-rid\" class=\"col-sm-2 control-label\">Restaurant ID: </label>
+					<div class=\"form-group\" id=\"restIdForm\" style=\"text-align:center\">
 					</div>
 			</div>
 			<div class=\"modal-footer\" style=\"text-align: center;\">

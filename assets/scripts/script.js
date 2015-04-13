@@ -6,14 +6,15 @@ function signUp()
 {
     $('#signUpModal').modal('show');
 }
-function createMenuItem()
+function createMenuItem(givenRestId, givenRestName)
 {
+    //alert(givenRestId);
     // Creates a label
     var label = document.createElement("label");
     label.for = "input-rid";
     label.class = "col-sm-2 control-label";
     // Restaurant ID: givenid text
-    var text = document.createTextNode("Restaurant ID: " + givenRestId);
+    var text = document.createTextNode("Restaurant ID: " + givenRestName);
     // Adds text to label
     label.appendChild(text);
     // Adds label to form
@@ -30,7 +31,7 @@ function createMenuItem()
 
 function deleteMenuItem(givenItemId)
 {
-    alert(givenItemId);
+    //alert(givenItemId);
     $('#deleteMenuItem').modal('show');
     // Edit form to input hidden with value itemId
     // DEBUG
@@ -47,13 +48,13 @@ function createRestaurant()
 }
 function deleteRestaurant(givenRestaurantId)
 {
-    alert(givenRestaurantId);
+    //alert(givenRestaurantId);
     $('#deleteRestaurant').modal('show');
     var input = document.createElement("input");
     input.type = "hidden";
-    input.name = "remove-rest";
-    input.id = "remove-rest";
-    input.value = givenItemId;
+    input.name = "remove-restaurant";
+    input.id = "remove-restaurant";
+    input.value = givenRestaurantId;
     document.getElementById("restaurant-delete").appendChild(input);
 }
 

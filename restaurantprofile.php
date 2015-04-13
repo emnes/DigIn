@@ -39,6 +39,7 @@
       <div class="row">
           <?php
           $restaurantId = $row[10];
+          $restaurantName = $row[0];
         // If likeness doesn't show or is 0
           if($row[8]==-1)
             $likeness = "Not yet rated";
@@ -117,7 +118,7 @@
       </div>
         <!--Menu Ratings-->
         <?php 
-        echo "<button type=\"button\" class=\"btn btn-success btn-md\" role=\"button\" onClick=\"createMenuItem('".$restaurantId."')\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> Create Menu Item</button>
+        echo "<button type=\"button\" class=\"btn btn-success btn-md\" role=\"button\" onClick=\"createMenuItem('".$restaurantId."', '".$restaurantName."')\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> Create Menu Item</button>
       <div class=\"row\">";
         $locationId = $_GET['locationid']; 
         $menuRatingsOfARestaurant = "SELECT * FROM fieldmazcolleen.menuRatingsOfARestaurant('".$locationId."')";
