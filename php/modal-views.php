@@ -1,4 +1,4 @@
-<?php if(isset($_GET['locationId']) == false)
+<?php if(isset($_GET['locationid']) == false)
 		{
 			$locationId = "";
 		}
