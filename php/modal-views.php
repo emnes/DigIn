@@ -73,12 +73,11 @@ echo "
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">User Type</label>
 						<select name=\"input-type\" class=\"form-control\" id=\"user-type-selector\">
-							<option value=\"critic\">Critic</option>
-							<option value=\"blogger\">Blogger</option>
-							<option value=\"diner\">Diner</option>
+							<option value=\"Critic\">Critic</option>
+							<option value=\"Blogger\">Blogger</option>
+							<option value=\"Diner\">Diner</option>
 						</select>
 					</div>
-
 					<div class=\"text-center\">
 						<button type=\"submit\" class=\"btn btn-primary\"><strong>Sign Up!</strong></button>
 					</div>
@@ -100,11 +99,11 @@ echo "
 				<h4 class=\"modal-title\" id=\"myModalLabel\">Create Menu Item</h4>
 			</div>
 			<div class=\"modal-body\">
-				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/createmenuitem.php\" role=\"form\">
+				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/createmenuitem.php?locid=".$locationId."\" role=\"form\">
 					<div class=\"row\">
 						<div class=\"form-group-xs\">
 							<label for=\"input-id\">Item Id</label>
-							<input name =\"input-name\" type=\"text\" class=\"form-control\" id=\"input-id\" required autofocus/>
+							<input name =\"input-id\" type=\"text\" class=\"form-control\" id=\"input-id\" required autofocus/>
 						</div>
 					</div>
 					<div class=\"row\">
@@ -116,19 +115,19 @@ echo "
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Type of Food</label>
 						<select name=\"input-type\" class=\"form-control\" id=\"user-type-selector\">
-							<option value=\"beverage\">Beverage</option>
-							<option value=\"food\">Food</option>
-							<option value=\"vegetarian\">Vegetarian</option>
+							<option value=\"Beverage\">Beverage</option>
+							<option value=\"Food\">Food</option>
+							<option value=\"Vegetarian\">Vegetarian</option>
 						</select>
 					</div>
 					<div class=\"form-group\">
 						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Category</label>
 						<select name=\"input-category\" class=\"form-control\" id=\"user-type-selector\">
-							<option value=\"\appetizer\">Appetizers</option>
-							<option value=\"desserts\">Desserts</option>
-							<option value=\"mains\">Mains</option>
-							<option value=\"sandwiches and burgers\">Sandwiches and Burgers</option>
-							<option value=\"snacks\">Snacks</option>
+							<option value=\"\Appetizer\">Appetizers</option>
+							<option value=\"Desserts\">Desserts</option>
+							<option value=\"Mains\">Mains</option>
+							<option value=\"Sandwiches And Burgers\">Sandwiches and Burgers</option>
+							<option value=\"Snacks\">Snacks</option>
 						</select>
 					</div>
 					<div class=\"row\">
@@ -143,11 +142,10 @@ echo "
 							<input name =\"input-price\" type=\"text\" class=\"form-control\" id=\"input-price\" required/>
 						</div>
 					</div>
-
 					<div class=\"row\">
 						<div class=\"form-group-xs\">
-							<label for=\"input-id\">Restaurant Id</label>
-							<input name =\"input-id\" type=\"text\" class=\"form-control\" id=\"input-id\" required/>
+							<label for=\"input-rid\">Restaurant Id</label>
+							<input name =\"input-rid\" type=\"text\" class=\"form-control\" id=\"input-rid\" required/>
 						</div>
 					</div>
 					<div class=\"text-center\">
@@ -172,20 +170,15 @@ echo "
 			</div>
 			<div class=\"modal-body\">
 				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deletemenuitem.php\" role=\"form\">
-					<div class=\"form-group\">
-						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Are you sure you want to delete this item?</label>
-						<select name=\"answer\" class=\"form-control\" id=\"user-type-selector\">
-							<option value=\"yes\">Yes</option>
-							<option value=\"no\">No</option>
-						</select>
-					</div>	
-					<div class=\"text-center\">
-						<button type=\"submit\" class=\"btn btn-primary\"><strong>Delete!</strong></button>
-					</div>			
+						<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<h3>Are you sure you want to delete this item?</h3>
+							<input type=\"submit\" value=\"
+							<button type=\"submit\" class=\"btn btn-primary\"><strong>Yes!</strong></button>
+							<button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">No</button>
+						</div>
+						</div>
 				</form>
-			</div>
-			<div class=\"modal-footer\">
-				<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
 			</div>
 		</div>
 	</div>
@@ -246,21 +239,15 @@ echo "
 				<h4 class=\"modal-title\" id=\"myModalLabel\" style=\"text-align: center;\">Delete Restaurant</h4>
 			</div>
 			<div class=\"modal-body\">
-				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deleterestaurant.php\" role=\"form\">
-					<div class=\"form-group\">
-						<label for=\"user-type-selector\" class=\"col-sm-2 control-label\">Are you sure you want to delete this restaurant?</label>
-						<select name=\"name\" class=\"form-control\" id=\"user-type-selector\">
-							<option value=\"yes\">Yes</option>
-							<option value=\"no\">No</option>
-						</select>
-					</div>	
-					<div class=\"text-center\">
-						<button type=\"submit\" class=\"btn btn-primary\"><strong>Delete!</strong></button>
-					</div>				
+				<form class=\"form-horizontal\" name=\"formID\" method=\"post\" action=\"php/deletemenuitem.php\" role=\"form\">
+						<div class=\"row\">
+						<div class=\"form-group-xs\">
+							<h3>Are you sure you want to delete this restaurant?</h3>
+							<button type=\"submit\" class=\"btn btn-primary\"><strong>Yes!</strong></button>
+							<button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">No</button>
+						</div>
+						</div>
 				</form>
-			</div>
-			<div class=\"modal-footer\">
-				<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
 			</div>
 		</div>
 	</div>

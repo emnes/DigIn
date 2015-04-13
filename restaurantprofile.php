@@ -29,33 +29,6 @@
     echo $row[0]." | Dig In";
     ?> </title>
   </head>
-  <!-- Deals with Logging in and Storing sessions -->
-  <?php
-
-  session_start();
-// Check if login button clicked and login value is in POST
-  if(array_key_exists('login',$_POST))
-  {
-// Retrieve email and password
-    $logInEmail=$_POST['logInEmail'];
-    $logInPass=$_POST['logInPass'];
-
-// Query for user
-    $logInQuery="SELECT * FROM fieldmazcolleen.Rater R WHERE R.email=$2 AND R.password=$3";
-    $result = $data_access_layer->executeQuery($logInQuery);
-    $result_count = count($result);
-// If user exists
-    if($row_count>0)
-    {
-  // Store log in email under log in email
-      $_SESSION['logInEmail']=$logInEmail;
-  // Go to this location
-      header("location: restaurants.php");
-      exit;
-    }
-    pg_free_result($result);
-  }
-  ?>
 
   <body>
     <?php include 'php/modal-views.php'; include 'php/nav-header.php'; ?>
@@ -74,7 +47,7 @@
           echo "
           <div class=\"page-header\" align=\"center\">
           <h2>".$row[0]."</h2>
-          <button type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\" onClick=\"\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Restaurant</button>
+          <button type=\"button\" class=\"btn btn-danger btn-md\" role=\"button\" onClick=\"deleteRestaurant()\"><span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete Restaurant</button>
           </div>
           <div class=\"restaurant-description\">
           <p>  <span id=\"rating\">".$likeness."</span> </br>
@@ -105,8 +78,11 @@
         $rows = $data_access_layer->executeQuery($ratingsOfARestaurant);
         if(count($rows)>0)
         {
+            
+
             echo "<div class=\"page-header\">
             <h1>Menu</h1>
+            <button type=\"button\" class=\"btn btn-success btn-md\" role=\"button\" onClick=\"createMenuItem()\"><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span> Create Menu Item</button>
             </div>
             <div class=\"col-md-6 column\">
               <table class=\"table table-hover\">
@@ -130,7 +106,7 @@
                               <td>".$row[1]."</td>
                               <td>".$row[2]."</td>
                               <td>$".$row[3]."</td>
-                              <td><button onclick=\"\"  name = \"remove-item\" method= \"post\"  type=\"edit-item\" class=\"btn btn-danger\" style=\"padding-bottom:5px;padding-top:5px\">
+                              <td><button onclick=\"deleteMenuItem()\"  name = \"remove-item\" method= \"post\"  type=\"edit-item\" class=\"btn btn-danger\" style=\"padding-bottom:5px;padding-top:5px\">
                                 <span class=\"glyphicon glyphicon-remove\"></span>
                               </button></td>
                               </tr>";
