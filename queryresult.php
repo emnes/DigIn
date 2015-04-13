@@ -67,17 +67,18 @@
           foreach ($rows as $row) 
           {
             //If category doesn't show or is 0
-          if($row[1]==0)
-            $category = "beverage";
-          else
-            $category = $row[1];
+          // if($row[1]==0)
+          //   $category = "beverage";
+          // else
+          //   $category = $row[1];
+
             echo "
             <div class=\"container\">
             <div class=\"row clearfix\">
             <div class=\"col-md-12 column\">
             <h3> Type: " . $row[0] . "</h3>
-            <p> Category: " . $category . "</p>
-            <p> Price: $" . $row[2]. "</p>
+            <p> Category: " . $row[1]. "</p>
+            <p> Price: $" . round($row[2], 2). "</p>
             </div>
             </div>
             </div>";
@@ -131,11 +132,11 @@
             <div class=\"container\">
             <div class=\"row clearfix\">
             <div class=\"col-md-12 column\">
-            <h2> " . $row[1] . "</h2>
-            <p> Food rating: " . $row[5] . "</p>
-            <p> Location: " . $row[3] . "</p>
-            <p> Phone number: " . $row[4] . "</p>
-            <p> Rater: " . $row[2]. "</p>
+            <h2> " . $row[0] . "</h2>
+            <p> Food rating: " . $row[4] . "</p>
+            <p> Location: " . $row[2] . "</p>
+            <p> Phone number: " . $row[3] . "</p>
+            <p> Rater: " . $row[1]. "</p>
             </div>
             </div>
             </div>";
@@ -188,10 +189,9 @@
             <div class=\"row clearfix\">
             <div class=\"col-md-12 column\">
             <h2> " . $row[0] . "</h2>
-            <p> Member since: " . $row[1] . "</p>
-            <p> Reputation: " . $row[2] . "</p>
-            <p> Restaurant: " . $row[3] . "</p>
-            <p> Rated at: " . $row[4]. "</p>
+            <p> Reputation: " . $row[1] . "</p>
+            <p> Restaurant: " . $row[2] . "</p>
+            <p> Rated at: " . $row[3]. "</p>
             </div>
             </div>
             </div>";
